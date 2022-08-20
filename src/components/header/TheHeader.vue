@@ -1,19 +1,19 @@
 <template>
   <header>
     <div class="container">
-      <header-logo></header-logo>
+      <site-logo position="header-logo"></site-logo>
       <header-nav></header-nav>
     </div>
   </header>
 </template>
 
 <script>
-import HeaderLogo from "./HeaderLogo.vue";
+import SiteLogo from "../ui/SiteLogo.vue";
 import HeaderNav from "./HeaderNavigation.vue";
 
 export default {
   components: {
-    HeaderLogo,
+    SiteLogo,
     HeaderNav,
   },
 };
@@ -22,6 +22,10 @@ export default {
 <style lang="scss" scoped>
 header {
   padding: 2rem 0 0 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
   > div {
     display: flex;
     justify-content: space-between;

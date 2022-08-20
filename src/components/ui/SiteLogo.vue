@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="homePageLink">
+    <router-link :class="position" :to="homePageLink">
       <h1>Dominik</h1>
       <h1>Wojtowicz</h1>
     </router-link>
@@ -9,6 +9,13 @@
 
 <script>
 export default {
+  props: {
+    position: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
   computed: {
     homePageLink() {
       return { name: "home" };
@@ -25,6 +32,18 @@ h1 {
 
 a {
   text-decoration: none;
-  color: #0d0e15;
+  // color: #0d0e15;
+}
+
+.header-logo {
+  h1 {
+    color: #222;
+  }
+}
+
+.footer-logo {
+  h1 {
+    color: #777;
+  }
 }
 </style>
