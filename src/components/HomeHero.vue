@@ -12,12 +12,12 @@
 export default {
   mounted() {
     // animacja napisu hero
-    this.isLoaded = true;
+    return this.$store.dispatch("changeHeroAnimationLoadedStatus");
   },
-  data() {
-    return {
-      isLoaded: false,
-    };
+  computed: {
+    isLoaded() {
+      return this.$store.getters.homeHeroAnimationLoaded;
+    },
   },
 };
 </script>
@@ -46,5 +46,15 @@ section {
 }
 .show-enter-active {
   transition: all 1s ease-in;
+}
+
+.show-leave-from {
+  opacity: 1;
+}
+.show-leave-to {
+  opacity: 0;
+}
+.show-leave-active {
+  transition: all 1s ease-out;
 }
 </style>
