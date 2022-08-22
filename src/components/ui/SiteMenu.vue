@@ -35,16 +35,38 @@ export default {
     color: #0d0e15;
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1.5rem;
-    margin: 0 0.5rem;
+    // padding: 0.5rem 1.5rem;
+    margin: 0.5rem 2rem;
+    display: inline-block;
+    position: relative;
     &:hover {
       opacity: 0.8;
       color: #333;
     }
-    &.router-link-active.router-link-exact-active {
-      text-decoration: underline;
-      color: #333;
-      opacity: 0.8;
+    &.router-link-active.router-link-exact-active:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      height: 1em;
+      width: 100%;
+      border-bottom: 1px solid;
+      margin-top: 5px;
+      opacity: 0;
+      -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+      transition: opacity 0.35s, transform 0.35s;
+      -webkit-transform: scale(0, 1);
+      transform: scale(0, 1);
+    }
+    &:hover:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
   }
 }

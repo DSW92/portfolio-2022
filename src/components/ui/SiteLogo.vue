@@ -28,6 +28,7 @@ export default {
 h1 {
   margin: 0 0 0 0;
   font-weight: 700;
+  line-height: 1;
 }
 
 a {

@@ -1,10 +1,26 @@
 <template>
   <section>
     <div class="container">
-      <h1>DZIEŃ DOBRY.</h1>
+      <transition name="show">
+        <h1 v-if="isLoaded">DZIEŃ DOBRY.</h1>
+      </transition>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  mounted() {
+    // animacja napisu hero
+    this.isLoaded = true;
+  },
+  data() {
+    return {
+      isLoaded: false,
+    };
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 section {
@@ -20,5 +36,15 @@ section {
       color: #222;
     }
   }
+}
+
+.show-enter-from {
+  opacity: 0;
+}
+.show-enter-to {
+  opacity: 1;
+}
+.show-enter-active {
+  transition: all 1s ease-in;
 }
 </style>
