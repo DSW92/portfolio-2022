@@ -26,6 +26,7 @@ header {
   width: 100%;
   top: 0;
   background: #fff;
+  z-index: 999;
   > div {
     display: flex;
     justify-content: space-between;

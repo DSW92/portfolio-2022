@@ -62,7 +62,6 @@ export default {
     callHeroAnimationAction() {
       return this.$store.dispatch("changeHeroAnimationLoadedStatus");
     },
-
     animateLabels() {
       if (!this.labelsAnimationStatus) {
         setTimeout(() => {
@@ -81,16 +80,12 @@ export default {
           this.finishLabelsAnimation();
         }, 6000);
       }
-
       return this.$store.dispatch("changeLabelsAnimationStatus");
     },
   },
   mounted() {
     this.callHeroAnimationAction();
-
     this.animateLabels();
-
-    console.log(this.labelsAnimationStatus);
   },
 };
 </script>
@@ -138,7 +133,7 @@ section {
         font-weight: 400;
       }
       span {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 500;
         margin: 0 1rem;
       }
