@@ -1,7 +1,5 @@
 <template>
-  <keep-alive>
-    <home-hero></home-hero>
-  </keep-alive>
+  <home-hero></home-hero>
 </template>
 
 <script>
