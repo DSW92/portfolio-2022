@@ -32,34 +32,56 @@ export default {
   mounted() {
     this.checkBrowserLanguage();
     this.displayInitialLanguage();
-    console.log(this.selectedLanguage);
+    this.addSelectedLangToLocalStorage();
+    console.log("selectedLang:" + " " + this.selectedLanguage);
   },
   data() {
     return {
-      selectedLanguage: "",
-      browserLanguage: "",
+      // initialLanguage: "",
+      // selectedLanguage: "",
+      // browserLanguage: "",
       optionsToggle: false,
     };
   },
+  computed: {
+    // initialLanguage() {
+    //   return this.$store.getters.initialLanguage;
+    // },
+    selectedLanguage() {
+      return this.$store.getters.selectedLanguage;
+    },
+    browserLanguage() {
+      return this.$store.getters.browserLanguage;
+    },
+  },
   methods: {
     checkBrowserLanguage() {
-      this.browserLanguage = navigator.language;
+      // this.browserLanguage = navigator.language;
+      this.$store.dispatch("checkBrowserLanguage");
     },
 
     displayInitialLanguage() {
-      if (this.browserLanguage === "pl") {
-        this.selectedLanguage = "pl";
-      } else {
-        this.selectedLanguage = "en";
-      }
+      this.$store.dispatch("displayInitialLanguage");
+      // if (this.browserLanguage === "pl") {
+      //   this.selectedLanguage = "pl";
+      // } else {
+      //   this.selectedLanguage = "en";
+      // }
     },
 
     changeSelectedLanguage(lang) {
-      this.selectedLanguage = lang;
+      // this.selectedLanguage = lang;
+      // localStorage.setItem("lang", lang);
+      this.$store.dispatch("changeSelectedLanguage", lang);
     },
 
     toggleDropdown() {
       this.optionsToggle = !this.optionsToggle;
+    },
+
+    addSelectedLangToLocalStorage() {
+      // localStorage.setItem("initial-lang", this.selectedLanguage);
+      this.$store.dispatch("addSelectedLangToLocalStorage");
     },
   },
 };

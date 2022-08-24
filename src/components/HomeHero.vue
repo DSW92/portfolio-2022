@@ -2,7 +2,7 @@
   <section>
     <div class="container">
       <transition name="show">
-        <h1 v-if="isHeadingLoaded">DZIEŃ DOBRY.</h1>
+        <h1 v-if="isHeadingLoaded">{{ $t("welcome-msg") }}.</h1>
       </transition>
       <transition name="show">
         <div v-if="isHeadingLoaded" class="labels__container">
@@ -103,6 +103,7 @@ section {
       margin: 0;
       font-size: 150px;
       color: #222;
+      text-transform: uppercase;
     }
     .labels__container {
       display: flex;
