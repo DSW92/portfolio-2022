@@ -64,6 +64,7 @@ export default {
     changeSelectedLanguage(lang) {
       this.selectedLanguage = lang;
       localStorage.setItem("lang", lang);
+      window.location.reload();
     },
 
     toggleDropdown() {

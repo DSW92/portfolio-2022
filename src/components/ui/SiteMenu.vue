@@ -1,8 +1,12 @@
 <template>
   <div :class="position">
-    <router-link :to="homePageLink">Home</router-link>
-    <router-link :to="aboutPageLink">About me</router-link>
-    <router-link :to="contactPageLink">Contact</router-link>
+    <router-link :to="homePageLink">{{ $t("navigation.home") }}</router-link>
+    <router-link :to="aboutPageLink">{{
+      $t("navigation.portfolio")
+    }}</router-link>
+    <router-link :to="contactPageLink">{{
+      $t("navigation.contact")
+    }}</router-link>
   </div>
 </template>
 
@@ -20,10 +24,17 @@ export default {
       return { name: "home" };
     },
     aboutPageLink() {
-      return { name: "about" };
+      return { name: "portfolio" };
     },
     contactPageLink() {
-      return { name: "contact" };
+      if (
+        localStorage.getItem("lang") === "pl" &&
+        navigator.language === "pl"
+      ) {
+        return { name: "pl-contact" };
+      } else {
+        return { name: "contact" };
+      }
     },
   },
 };

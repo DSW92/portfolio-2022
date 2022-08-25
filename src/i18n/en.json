@@ -1,3 +1,12 @@
 {
-  "welcome-msg": "Hello"
+  "welcome-msg": "Hello",
+  "navigation": {
+    "home": "Home",
+    "offer": "My offer",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "routes": {
+    "contact": "contact"
+  }
 }
