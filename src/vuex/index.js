@@ -9,10 +9,6 @@ const store = createStore({
             labelsWereAnimated: false,
 
             finalBannernStatus: false,
-
-            // initialLanguage: "",
-            selectedLanguage: "",
-            browserLanguage: "",
         }
     },
     getters: {
@@ -25,16 +21,6 @@ const store = createStore({
         finalBannerStatus(state) {
             return state.finalBannernStatus;
         },
-
-        initialLanguage(state) {
-            return state.initialLanguage;
-        },
-        selectedLanguage(state) {
-            return state.selectedLanguage;
-        },
-        browserLanguage(state) {
-            return state.browserLanguage;
-        }
     },
     mutations: {
         changeHeroAnimationLoadedStatus(state) {
@@ -53,24 +39,6 @@ const store = createStore({
         changeLabelsAnimationStatus(state) {
             state.labelsWereAnimated = true;
         },
-
-        checkBrowserLanguage(state) {
-            state.browserLanguage = navigator.language;
-        },
-        displayInitialLanguage(state) {
-            if (state.browserLanguage === 'pl') {
-                state.selectedLanguage = 'pl';
-            } else {
-                state.selectedLanguage = 'en';
-            }
-        },
-        changeSelectedLanguage(state, payload) {
-            state.selectedLanguage = payload;
-            localStorage.setItem("lang", payload);
-        },
-        addSelectedLangToLocalStorage(state) {
-            localStorage.setItem("initial-lang", state.selectedLanguage);
-        }
     },
     actions: {
         changeHeroAnimationLoadedStatus(context) {
@@ -80,20 +48,6 @@ const store = createStore({
         changeLabelsAnimationStatus(context) {
             context.commit('changeLabelsAnimationStatus');
         },
-
-        checkBrowserLanguage(context) {
-            context.commit('checkBrowserLanguage');
-        },
-        displayInitialLanguage(context) {
-            context.commit('displayInitialLanguage');
-        },
-        changeSelectedLanguage(context, payload) {
-            context.commit('changeSelectedLanguage', payload);
-        },
-        addSelectedLangToLocalStorage(context) {
-            context.commit('addSelectedLangToLocalStorage'); 
-        }
-        
     }
 });
 

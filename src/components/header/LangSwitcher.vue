@@ -31,57 +31,43 @@
 export default {
   mounted() {
     this.checkBrowserLanguage();
-    this.displayInitialLanguage();
-    this.addSelectedLangToLocalStorage();
-    console.log("selectedLang:" + " " + this.selectedLanguage);
+    this.displayLanguage();
   },
   data() {
     return {
-      // initialLanguage: "",
-      // selectedLanguage: "",
-      // browserLanguage: "",
+      selectedLanguage: "",
+      browserLanguage: "",
       optionsToggle: false,
     };
   },
-  computed: {
-    // initialLanguage() {
-    //   return this.$store.getters.initialLanguage;
-    // },
-    selectedLanguage() {
-      return this.$store.getters.selectedLanguage;
-    },
-    browserLanguage() {
-      return this.$store.getters.browserLanguage;
-    },
-  },
   methods: {
     checkBrowserLanguage() {
-      // this.browserLanguage = navigator.language;
-      this.$store.dispatch("checkBrowserLanguage");
+      const browserLang = navigator.language;
+
+      if (browserLang === "pl") {
+        this.browserLanguage = "pl";
+      } else {
+        this.browserLanguage = "en";
+      }
     },
 
-    displayInitialLanguage() {
-      this.$store.dispatch("displayInitialLanguage");
-      // if (this.browserLanguage === "pl") {
-      //   this.selectedLanguage = "pl";
-      // } else {
-      //   this.selectedLanguage = "en";
-      // }
+    displayLanguage() {
+      if (localStorage.getItem("lang") === "pl") {
+        this.selectedLanguage = "pl";
+      } else if (localStorage.getItem("lang") === "en") {
+        this.selectedLanguage = "en";
+      } else {
+        this.selectedLanguage = this.browserLanguage;
+      }
     },
 
     changeSelectedLanguage(lang) {
-      // this.selectedLanguage = lang;
-      // localStorage.setItem("lang", lang);
-      this.$store.dispatch("changeSelectedLanguage", lang);
+      this.selectedLanguage = lang;
+      localStorage.setItem("lang", lang);
     },
 
     toggleDropdown() {
       this.optionsToggle = !this.optionsToggle;
-    },
-
-    addSelectedLangToLocalStorage() {
-      // localStorage.setItem("initial-lang", this.selectedLanguage);
-      this.$store.dispatch("addSelectedLangToLocalStorage");
     },
   },
 };

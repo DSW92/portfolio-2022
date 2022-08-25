@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './vuex';
 
+
 import pl from './i18n/pl.json';
 import en from './i18n/en.json';
 import { createI18n } from 'vue-i18n';
@@ -14,16 +15,19 @@ const i18n = createI18n({
         pl: pl,
         en: en,
     },
-    // locale: localStorage.getItem('lang'),
     locale: loadLocales(),
     fallbackLocale: 'pl',
 });
 
 function loadLocales() {
-    if (localStorage.getItem('lang')) {
-        return localStorage.getItem('lang');
+    let selectedLanguage = navigator.language;
+
+    if (localStorage.getItem('lang') === 'pl') {
+        return 'pl';
+    } else if(localStorage.getItem('lang') === 'en') {
+        return 'en';
     } else {
-        return localStorage.getItem('initial-lang');
+        return selectedLanguage;
     }
 }
 
