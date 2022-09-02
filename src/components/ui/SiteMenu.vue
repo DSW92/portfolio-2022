@@ -32,6 +32,13 @@ export default {
         navigator.language === "pl"
       ) {
         return { name: "pl-contact" };
+      } else if (
+        localStorage.getItem("lang") === "pl" &&
+        navigator.language.startsWith("en")
+      ) {
+        return { name: "pl-contact" };
+      } else if (!localStorage.getItem("lang") && navigator.language === "pl") {
+        return { name: "pl-contact" };
       } else {
         return { name: "contact" };
       }

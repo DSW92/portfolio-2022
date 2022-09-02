@@ -64,7 +64,18 @@ export default {
     changeSelectedLanguage(lang) {
       this.selectedLanguage = lang;
       localStorage.setItem("lang", lang);
-      window.location.reload();
+
+      if (this.$route.matched.some(({ name }) => name === "pl-contact")) {
+        this.$router.push({ name: "contact" }).then(() => {
+          window.location.reload();
+        });
+      } else if (this.$route.matched.some(({ name }) => name === "contact")) {
+        this.$router.push({ name: "pl-contact" }).then(() => {
+          window.location.reload();
+        });
+      } else {
+        window.location.reload();
+      }
     },
 
     toggleDropdown() {
