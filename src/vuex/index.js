@@ -9,6 +9,8 @@ const store = createStore({
             labelsWereAnimated: false,
 
             finalBannernStatus: false,
+
+            darkMode: false
         }
     },
     getters: {
@@ -21,6 +23,9 @@ const store = createStore({
         finalBannerStatus(state) {
             return state.finalBannernStatus;
         },
+        darkMode(state) {
+            return state.darkMode;
+        }
     },
     mutations: {
         changeHeroAnimationLoadedStatus(state) {

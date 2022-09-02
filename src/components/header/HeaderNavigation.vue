@@ -2,6 +2,7 @@
   <nav>
     <site-menu position="header-menu"></site-menu>
     <lang-switcher></lang-switcher>
+    <theme-switcher></theme-switcher>
     <linked-link></linked-link>
   </nav>
 </template>
@@ -10,12 +11,14 @@
 import LinkedLink from "../ui/LinkedLink.vue";
 import SiteMenu from "../ui/SiteMenu.vue";
 import LangSwitcher from "../header/LangSwitcher.vue";
+import ThemeSwitcher from "../header/ThemeSwitcher.vue";
 
 export default {
   components: {
     LinkedLink,
     SiteMenu,
     LangSwitcher,
+    ThemeSwitcher,
   },
 };
 </script>
