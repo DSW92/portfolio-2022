@@ -88,6 +88,7 @@ export default {
 <style lang="scss" scoped>
 .select {
   position: relative;
+  margin: 0;
   cursor: pointer;
   .selected-option {
     display: flex;

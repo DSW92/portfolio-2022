@@ -57,7 +57,7 @@ export default {
 .theme-toggle {
   background: none;
   border: none;
-  margin: 0 0 0 2rem;
+  margin: 0 0 -3px 2rem;
   color: #555;
   > svg {
     width: 35px;
@@ -85,7 +85,7 @@ export default {
       opacity: 0;
     }
     .sun {
-      transform: scale(1.2);
+      transform: scale(1.4);
       transition-duration: 0.3s;
     }
     mask.moon {

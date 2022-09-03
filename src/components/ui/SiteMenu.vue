@@ -49,6 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-menu {
+  margin: 0 3rem 0 0;
   > a {
     color: #0d0e15;
     text-decoration: none;
