@@ -1,9 +1,10 @@
 <template>
-  <!-- <div class="theme-switcher">
-    <div></div>
-    <div></div>
-  </div> -->
-  <button class="theme-toggle" id="theme-toggle">
+  <button
+    class="theme-toggle"
+    :class="isDarkMode ? 'dark-mode' : 'light-mode'"
+    id="theme-toggle"
+    @click="changeMode"
+  >
     <svg
       class="sun-and-moon"
       aria-hidden="true"
@@ -11,6 +12,10 @@
       height="24"
       viewBox="0 0 24 24"
     >
+      <mask class="moon" id="moon-mask">
+        <rect x="0" y="0" width="100%" height="100%" fill="white" />
+        <circle cx="24" cy="10" r="6" fill="black" />
+      </mask>
       <circle
         class="sun"
         cx="12"
@@ -29,32 +34,87 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </g>
-      <mask class="moon" id="moon-mask">
-        <rect x="0" y="0" width="100%" height="100%" fill="white" />
-        <circle cx="24" cy="10" r="6" fill="black" />
-      </mask>
     </svg>
   </button>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      isDarkMode: false,
+    };
+  },
+  methods: {
+    changeMode() {
+      this.isDarkMode = !this.isDarkMode;
+    },
+  },
+};
+</script>
+
 <style lang="scss" scoped>
-// .theme-switcher {
-//   margin: 0 0 0 2rem;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   background: lightgrey;
-//   width: 60px;
-//   height: 25px;
-//   border-radius: 20px;
-//   > div {
-//     background: #fafafa;
-//     border-radius: 100%;
-//     width: 20px;
-//     height: 20px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-// }
+.theme-toggle {
+  background: none;
+  border: none;
+  margin: 0 0 0 2rem;
+  color: #555;
+  > svg {
+    width: 35px;
+    height: 35px;
+    stroke-linecap: round;
+    &.sun-and-moon {
+      stroke-width: 2px;
+      .sun-beams,
+      .sun {
+        transform-origin: center;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    color: #222;
+  }
+}
+
+.theme-toggle.dark-mode {
+  svg {
+    .sun-beams {
+      transform: rotate(-45deg);
+      transition-duration: 0.3s;
+      opacity: 0;
+    }
+    .sun {
+      transform: scale(1.2);
+      transition-duration: 0.3s;
+    }
+    mask.moon {
+      circle {
+        cx: 17;
+        transition-duration: 0.3s;
+        transition-delay: 0.2s;
+      }
+    }
+  }
+}
+
+.theme-toggle.light-mode {
+  svg {
+    .sun-beams {
+      transform: rotate(45deg);
+      transition-duration: 0.3s;
+      opacity: 1;
+    }
+    .sun {
+      transform: scale(1);
+      transition-duration: 0.3s;
+    }
+    mask.moon {
+      circle {
+        cx: 24;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+}
 </style>
