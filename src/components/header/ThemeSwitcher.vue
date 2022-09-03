@@ -40,14 +40,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isDarkMode: false,
-    };
-  },
   methods: {
     changeMode() {
-      this.isDarkMode = !this.isDarkMode;
+      this.$store.dispatch("changeMode");
+    },
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.darkMode;
     },
   },
 };

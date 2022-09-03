@@ -10,7 +10,7 @@ const store = createStore({
 
             finalBannernStatus: false,
 
-            darkMode: false
+            darkMode: false,
         }
     },
     getters: {
@@ -44,6 +44,10 @@ const store = createStore({
         changeLabelsAnimationStatus(state) {
             state.labelsWereAnimated = true;
         },
+
+        changeMode(state) {
+            state.darkMode = !state.darkMode;
+        }
     },
     actions: {
         changeHeroAnimationLoadedStatus(context) {
@@ -53,6 +57,10 @@ const store = createStore({
         changeLabelsAnimationStatus(context) {
             context.commit('changeLabelsAnimationStatus');
         },
+
+        changeMode(context) {
+            context.commit('changeMode');
+        }
     }
 });
 
