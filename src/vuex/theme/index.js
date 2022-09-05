@@ -1,8 +1,7 @@
 export default {
-    state() {
-        return {
-            darkMode: null,
-        }
+    state: {
+        // managed by vuex-persistedstate
+        darkMode: false,
     },
     getters: {
         darkMode(state) {
@@ -19,7 +18,4 @@ export default {
             context.commit('changeMode', payload);
         }
     },
-    plugins: [
-        
-    ]
 }
