@@ -1,7 +1,9 @@
 <template>
-  <the-header></the-header>
-  <router-view />
-  <the-footer></the-footer>
+  <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
+    <the-header></the-header>
+    <router-view />
+    <the-footer></the-footer>
+  </div>
 </template>
 
 <script>
@@ -12,6 +14,11 @@ export default {
   components: {
     TheHeader,
     TheFooter,
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.darkMode;
+    },
   },
 };
 </script>
@@ -29,5 +36,59 @@ body {
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.theme-wrapper.dark-mode {
+  background: #333;
+  transition-duration: 0.2s;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: #fafafa;
+    transition-duration: 0.2s;
+  }
+  header {
+    background: #222;
+    transition-duration: 0.2s;
+  }
+  footer {
+    a,
+    p {
+      color: #777;
+    }
+  }
+}
+
+.theme-wrapper.light-mode {
+  background: #fff;
+  transition-duration: 0.2s;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: #222;
+    transition-duration: 0.2s;
+  }
+  header {
+    background: #fff;
+    transition-duration: 0.2s;
+  }
+  footer {
+    a,
+    p {
+      color: #777;
+    }
+    h1,
+    h3 {
+      color: #fafafa;
+    }
+  }
 }
 </style>

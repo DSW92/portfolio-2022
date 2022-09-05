@@ -4,14 +4,28 @@
       <transition name="fade" mode="out-in">
         <span :key="selectedLanguage">{{ selectedLanguage }}</span>
       </transition>
-      <span><img src="../../assets/chevron-down.png" alt="" /></span>
+      <span>
+        <!-- <img src="../../assets/chevron-down.png" alt="" /> -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </span>
     </div>
-    <div :class="{ dropdownVisible: optionsToggle }" class="options">
+    <div :class="{ dropdownHidden: dropdownHide }" class="options">
       <span
         v-if="selectedLanguage === 'en'"
         @click="
           changeSelectedLanguage('pl');
-          toggleDropdown();
+          hideDropdown();
         "
         >PL</span
       >
@@ -19,7 +33,7 @@
         v-if="selectedLanguage === 'pl'"
         @click="
           changeSelectedLanguage('en');
-          toggleDropdown();
+          hideDropdown();
         "
         >EN</span
       >
@@ -37,7 +51,7 @@ export default {
     return {
       selectedLanguage: "",
       browserLanguage: "",
-      optionsToggle: false,
+      dropdownHide: false,
     };
   },
   methods: {
@@ -78,8 +92,8 @@ export default {
       }
     },
 
-    toggleDropdown() {
-      this.optionsToggle = !this.optionsToggle;
+    hideDropdown() {
+      this.dropdownHide = true;
     },
   },
 };
@@ -88,12 +102,12 @@ export default {
 <style lang="scss" scoped>
 .select {
   position: relative;
-  margin: 0;
+  margin: 0 0 0 1rem;
   cursor: pointer;
   .selected-option {
     display: flex;
     flex-direction: row;
-    border: 1px solid #222;
+    // border: 1px solid #222;
     padding: 2px 5px;
     color: #222;
     span {
@@ -106,9 +120,8 @@ export default {
       width: 24px;
     }
     span:nth-of-type(2) {
-      img {
-        width: 10px;
-        margin-left: 3px;
+      svg {
+        margin: 0 0 -0.5px 3px;
       }
     }
   }
@@ -119,17 +132,21 @@ export default {
     width: 100%;
     opacity: 0;
     pointer-events: none;
+    transition-duration: 0.3s;
     span {
       cursor: pointer;
       padding: 5px 5px 2px 5px;
       font-weight: 500;
       color: #222;
     }
-
-    &.dropdownVisible {
+    &.dropdownHidden {
+      display: none;
+    }
+  }
+  &:hover {
+    .options {
       opacity: 1;
       pointer-events: all;
-      transition-duration: 0.3s;
     }
   }
 }
@@ -144,14 +161,35 @@ export default {
   transition-duration: 0.3s;
 }
 
-// .fade-leave-from {
-//   display: none;
-// }
-// .fade-leave-to {
-//   display: none;
-// }
-
 .fade-leave-active {
   display: none;
+}
+
+.theme-wrapper.dark-mode {
+  .selected-option,
+  .options {
+    span {
+      color: #fafafa;
+      transition-duration: 0.2s;
+      svg {
+        fill: #fafafa;
+        transition-duration: 0.2s;
+      }
+    }
+  }
+}
+
+.theme-wrapper.light-mode {
+  .selected-option,
+  .options {
+    span {
+      color: #0d0e15;
+      transition-duration: 0.2s;
+      svg {
+        fill: #0d0e15;
+        transition-duration: 0.2s;
+      }
+    }
+  }
 }
 </style>

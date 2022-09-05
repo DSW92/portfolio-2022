@@ -113,16 +113,6 @@ section {
         margin: 0;
         font-size: 1.5rem;
       }
-      .typing {
-        display: initial;
-        color: #222;
-        overflow: hidden; /* Ensures the content is not revealed until the animation */
-        border-right: 0.15em solid #222; /* The typwriter cursor */
-        white-space: nowrap; /* Keeps the content on a single line */
-        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-        letter-spacing: 0.15em; /* Adjust as needed */
-        animation: typing 1s steps(20, end), blink-caret 0.5s step-end infinite;
-      }
     }
     .labels-static__container {
       display: flex;
@@ -142,6 +132,53 @@ section {
   }
 }
 
+.theme-wrapper.light-mode {
+  section {
+    .labels__container {
+      .typing {
+        display: initial;
+        // color: #222;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: 0.15em solid #222; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: 0.15em; /* Adjust as needed */
+        animation: typing 1s steps(20, end), blink-caret 0.5s step-end infinite;
+      }
+    }
+    .labels-static__container {
+      span {
+        transition-duration: 0.3s;
+        color: #222;
+      }
+    }
+  }
+}
+
+.theme-wrapper.dark-mode {
+  section {
+    .labels__container {
+      .typing {
+        display: initial;
+        // color: #222;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: 0.15em solid #fafafa; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: 0.15em; /* Adjust as needed */
+        animation: typing 1s steps(20, end),
+          blink-caret-dark-mode 0.5s step-end infinite;
+      }
+    }
+    .labels-static__container {
+      span {
+        transition-duration: 0.3s;
+        color: #fafafa;
+      }
+    }
+  }
+}
+
 .show-enter-from {
   opacity: 0;
 }
@@ -149,7 +186,7 @@ section {
   opacity: 1;
 }
 .show-enter-active {
-  transition: all 1s ease-in;
+  transition: all 1s ease-in !important;
 }
 
 .show-leave-from {
@@ -159,7 +196,7 @@ section {
   opacity: 0;
 }
 .show-leave-active {
-  transition: all 1s ease-out;
+  transition: all 1s ease-out !important;
 }
 
 .banner-enter-from {
@@ -169,7 +206,7 @@ section {
   opacity: 1;
 }
 .banner-enter-active {
-  transition: all 1s ease-in;
+  transition: all 1s ease-in !important;
 }
 
 /* The typing effect */
@@ -190,6 +227,16 @@ section {
   }
   50% {
     border-color: #222;
+  }
+}
+
+@keyframes blink-caret-dark-mode {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fafafa;
   }
 }
 </style>

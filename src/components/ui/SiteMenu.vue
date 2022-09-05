@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-menu {
-  margin: 0 3rem 0 0;
+  margin: 0 2rem 0 0;
   > a {
     color: #0d0e15;
     text-decoration: none;
@@ -96,12 +96,37 @@ export default {
   > a {
     text-decoration: none;
     color: #777;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 0.5rem;
     &:hover {
       color: #fff;
+    }
+  }
+}
+
+.theme-wrapper.dark-mode {
+  .header-menu {
+    a {
+      color: #fafafa;
+      transition-duration: 0.2s;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.theme-wrapper.light-mode {
+  .header-menu {
+    a {
+      color: #0d0e15;
+      transition-duration: 0.2s;
+      &:hover {
+        opacity: 0.8;
+        color: #333;
+      }
     }
   }
 }

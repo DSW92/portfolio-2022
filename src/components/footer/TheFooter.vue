@@ -76,7 +76,7 @@ footer {
   > a {
     text-decoration: none;
     display: inline-block;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
     &:hover {
       color: #fff;
     }

@@ -61,11 +61,11 @@ export default {
 .theme-toggle {
   background: none;
   border: none;
-  margin: 0 0 -3px 2rem;
+  margin: 0 0 -3px 0;
   color: #555;
   > svg {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     stroke-linecap: round;
     &.sun-and-moon {
       stroke-width: 2px;
@@ -77,11 +77,12 @@ export default {
   }
   &:hover {
     cursor: pointer;
-    color: #222;
+    color: #777;
   }
 }
 
 .theme-toggle.dark-mode {
+  color: #777;
   svg {
     .sun-beams {
       transform: rotate(-45deg);
@@ -89,7 +90,7 @@ export default {
       opacity: 0;
     }
     .sun {
-      transform: scale(1.4);
+      transform: scale(1.5);
       transition-duration: 0.3s;
     }
     mask.moon {
@@ -99,6 +100,9 @@ export default {
         transition-delay: 0.2s;
       }
     }
+  }
+  &:hover {
+    color: #999;
   }
 }
 

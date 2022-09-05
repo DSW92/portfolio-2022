@@ -1,9 +1,8 @@
 <template>
   <nav>
     <site-menu position="header-menu"></site-menu>
-
-    <lang-switcher></lang-switcher>
     <theme-switcher></theme-switcher>
+    <lang-switcher></lang-switcher>
     <linked-link></linked-link>
   </nav>
 </template>
