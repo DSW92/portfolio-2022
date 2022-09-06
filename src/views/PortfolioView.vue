@@ -1,9 +1,24 @@
 <template>
   <div class="container">
     <div class="row tabs__container">
-      <button @click="changeTab('wordpress-tab')">WordPress</button>
-      <button @click="changeTab('ecommerce-tab')">E-commerce</button>
-      <button @click="changeTab('miscellaneous-tab')">Pozostałe</button>
+      <button
+        :class="{ active: activeComponent === 'wordpress-tab' }"
+        @click="changeTab('wordpress-tab')"
+      >
+        WordPress
+      </button>
+      <button
+        :class="{ active: activeComponent === 'ecommerce-tab' }"
+        @click="changeTab('ecommerce-tab')"
+      >
+        E-commerce
+      </button>
+      <button
+        :class="{ active: activeComponent === 'miscellaneous-tab' }"
+        @click="changeTab('miscellaneous-tab')"
+      >
+        Pozostałe
+      </button>
     </div>
     <div class="row">
       <component :is="activeComponent"></component>
@@ -56,6 +71,11 @@ export default {
     button {
       color: #fafafa;
       transition-duration: 0.2s;
+      &.active,
+      &:hover {
+        color: #fff;
+        font-weight: 500;
+      }
     }
   }
 }
@@ -63,8 +83,13 @@ export default {
 .theme-wrapper.light-mode {
   .tabs__container {
     button {
-      color: #222;
+      color: #797979;
       transition-duration: 0.2s;
+      &.active,
+      &:hover {
+        color: #222;
+        font-weight: 500;
+      }
     }
   }
 }
