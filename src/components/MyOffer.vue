@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="my-offer">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-7">
@@ -25,6 +25,11 @@
       <div class="row">
         <div class="col-12 col-md-7">
           <p>{{ $t("my-offer.paragraph-3") }}</p>
+          <p>
+            <router-link to="contact">Formularz kontaktowy</router-link>,
+            <a href="">LinkedIn</a>,
+            <a href="mailto:dominik.s.wojtowicz@gmail.com">e-mail</a>
+          </p>
           <p>{{ $t("my-offer.paragraph-3a") }}</p>
         </div>
         <div class="col-12 col-md-5">
@@ -107,12 +112,32 @@
 .theme-wrapper.dark-mode {
   .container {
     border-top: 1px solid #fafafa;
+    .row {
+      .col-12 {
+        p {
+          a {
+            color: #fafafa;
+            transition-duration: 0.2s;
+          }
+        }
+      }
+    }
   }
 }
 
 .theme-wrapper.light-mode {
   .container {
     border-top: 1px solid #222;
+    .row {
+      .col-12 {
+        p {
+          a {
+            color: #222;
+            transition-duration: 0.2s;
+          }
+        }
+      }
+    }
   }
 }
 </style>

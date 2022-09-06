@@ -12,8 +12,8 @@
   "my-offer": {
     "paragraph-1": "Strony internetowe - zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
     "paragraph-1a": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA).",
-    "paragraph-2": "E-commerce - sklepy internetowe. Od jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii.",
-    "paragraph-3": "Potrzebujesz front-end developera do swojego zespołu? Skontaktuj się ze mną:",
-    "paragraph-3a": "HTML, CSS, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce"
+    "paragraph-2": "E-commerce - sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii.",
+    "paragraph-3": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
+    "paragraph-3a": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
   }
 }
