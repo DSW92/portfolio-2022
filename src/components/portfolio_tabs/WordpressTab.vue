@@ -1,28 +1,13 @@
 <template>
-  <div>WordPress</div>
-  <div>
-    <div v-for="item in results" :key="item.id">{{ item.title }}</div>
-  </div>
+  <portfolio-card category="wordpress"></portfolio-card>
 </template>
 
 <script>
-export default {
-  mounted() {
-    const projects = this.projects.filter(
-      (project) => project.category === "wordpress"
-    );
+import PortfolioCard from "./PortfolioCard.vue";
 
-    this.results = projects;
-  },
-  data() {
-    return {
-      results: [],
-    };
-  },
-  computed: {
-    projects() {
-      return this.$store.getters.projects;
-    },
+export default {
+  components: {
+    PortfolioCard,
   },
 };
 </script>

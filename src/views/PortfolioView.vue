@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row tabs__container">
+  <section>
+    <div class="container tabs__container">
       <button
         :class="{ active: activeComponent === 'wordpress-tab' }"
         @click="changeTab('wordpress-tab')"
@@ -20,10 +20,10 @@
         Pozostałe
       </button>
     </div>
-    <div class="row">
+    <div class="container">
       <component :is="activeComponent"></component>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -51,10 +51,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+section {
+  min-height: calc(100vh - 279px);
+}
 .tabs__container {
-  padding-top: 10rem;
+  padding-top: 12rem;
   display: flex;
   justify-content: center;
+  margin-bottom: 5rem;
   button {
     border: none;
     background: none;
