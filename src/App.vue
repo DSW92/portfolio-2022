@@ -1,7 +1,11 @@
 <template>
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <keep-alive include="ContactView">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
     <the-footer></the-footer>
   </div>
 </template>

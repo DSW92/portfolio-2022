@@ -47,6 +47,8 @@ export default {
 <style lang="scss" scoped>
 section {
   padding-top: 12rem;
+  min-height: calc(100vh - 277.5px);
+  box-sizing: border-box;
 }
 
 form {

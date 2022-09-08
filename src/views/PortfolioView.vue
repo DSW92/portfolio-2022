@@ -52,7 +52,8 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  min-height: calc(100vh - 279px);
+  min-height: calc(100vh - 277.5px);
+  box-sizing: border-box;
 }
 .tabs__container {
   padding-top: 12rem;
@@ -67,6 +68,7 @@ section {
     cursor: pointer;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+    outline: none;
   }
 }
 
