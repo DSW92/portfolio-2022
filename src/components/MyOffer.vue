@@ -50,10 +50,24 @@
     margin-bottom: 3rem;
     .col-12 {
       p {
-        font-size: 1.5rem;
-        line-height: 1.7;
+        font-size: 1.4rem;
+        line-height: 1.5;
         font-weight: 500;
         margin: 0 0 1rem 0;
+      }
+    }
+    &:nth-of-type(odd) {
+      .col-12 {
+        p {
+          margin-right: 2rem;
+        }
+      }
+    }
+    &:nth-of-type(even) {
+      .col-12 {
+        p {
+          margin-left: 2rem;
+        }
       }
     }
   }
@@ -62,7 +76,7 @@
 .picture__container {
   width: 100%;
   height: 100%;
-  background: #fafafa;
+  background: #f1f1f1;
   box-sizing: border-box;
   overflow: hidden;
   &.websites {
@@ -123,6 +137,10 @@
       }
     }
   }
+  .picture__container {
+    background: #555;
+    transition-duration: 0.2s;
+  }
 }
 
 .theme-wrapper.light-mode {
@@ -138,6 +156,10 @@
         }
       }
     }
+  }
+  .picture__container {
+    background: #f1f1f1;
+    transition-duration: 0.2s;
   }
 }
 </style>

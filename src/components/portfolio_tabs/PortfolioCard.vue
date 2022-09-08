@@ -49,7 +49,7 @@ export default {
   margin-bottom: 2rem;
 }
 .portfolio-card__container {
-  background: #fafafa;
+  background: #f1f1f1;
   padding: 4rem 4rem 0 4rem;
   overflow: hidden;
   position: relative;
@@ -57,8 +57,8 @@ export default {
     width: 100%;
     height: 100%;
     display: block;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
   .overlay {
     position: absolute;
@@ -98,6 +98,20 @@ export default {
       opacity: 1;
       pointer-events: all;
     }
+  }
+}
+
+.theme-wrapper.dark-mode {
+  .portfolio-card__container {
+    background: #555;
+    transition-duration: 0.2s;
+  }
+}
+
+.theme-wrapper.light-mode {
+  .portfolio-card__container {
+    background: #f1f1f1;
+    transition-duration: 0.2s;
   }
 }
 </style>
