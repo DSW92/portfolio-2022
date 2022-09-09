@@ -46,6 +46,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem 0;
+}
+
 .theme-wrapper.dark-mode {
   background: #333;
   transition-duration: 0.2s;

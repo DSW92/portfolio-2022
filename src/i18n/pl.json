@@ -10,11 +10,28 @@
     "contact": "kontakt"
   },
   "my-offer": {
-    "paragraph-1": "Strony internetowe - zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
-    "paragraph-1a": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA).",
-    "paragraph-2": "E-commerce - sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii.",
-    "paragraph-3": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
-    "paragraph-3a": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    "heading": "Czym się zajmuję",
+    "heading-2": "Stack technologiczny",
+    "websites": {
+      "title": "Strony internetowe",
+      "description": "Zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
+      "description-2": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA)."
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii."
+    },
+    "frontend": {
+      "title": "Frontend",
+      "description": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
+      "link": "Formularz kontaktowy",
+      "link-2": "LinkedIn",
+      "link-3": "Email",
+      "description-2": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    },
+    "stack": {
+      "description": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    }
   },
   "contact-form": {
     "fistname": "Imię",

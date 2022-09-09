@@ -1,0 +1,28 @@
+{
+  "welcome-msg": "Dzień dobry",
+  "navigation": {
+    "home": "Strona główna",
+    "offer": "Oferta",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt"
+  },
+  "routes": {
+    "contact": "kontakt"
+  },
+  "my-offer": {
+    "paragraph-1": "Strony internetowe - zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
+    "paragraph-1a": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA).",
+    "paragraph-2": "E-commerce - sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii.",
+    "paragraph-3": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
+    "paragraph-3a": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+  },
+  "contact-form": {
+    "fistname": "Imię",
+    "lastname": "Nazwisko",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "message": "Wiadomość",
+    "send": "Wyślij",
+    "required": "pola obowiązkowe"
+  }
+}

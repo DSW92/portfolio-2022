@@ -2,27 +2,50 @@
   <section>
     <div class="container">
       <form @submit.prevent="submitForm()">
-        <div>
-          <label for="first_name">{{ $t("contact-form.fistname") }} *</label>
-          <input id="first_name" name="first_name" type="text" />
+        <div :class="{ invalidInput: !firstNameValid }">
+          <label for="first_name"
+            >{{ $t("contact-form.fistname") }} <span>*</span></label
+          >
+          <input
+            id="first_name"
+            name="first_name"
+            type="text"
+            v-model="firstName"
+            @keyup="validateInputs"
+          />
+          <transition>
+            <span v-if="!firstNameValid">Proszę podać poprawne imię</span>
+          </transition>
         </div>
-        <div>
-          <label for="last_name">{{ $t("contact-form.lastname") }} *</label>
-          <input id="last_name" name="last_name" type="text" />
+
+        <div :class="{ invalidInput: !lastNameValid }">
+          <label for="last_name">{{ $t("contact-form.lastname") }}</label>
+          <input
+            id="last_name"
+            name="last_name"
+            type="text"
+            v-model="lastName"
+            @keyup="validateInputs"
+          />
+          <span v-show="!lastNameValid">Proszę podać poprawne nazwisko</span>
         </div>
         <div class="email-phone__wrapper">
           <div>
-            <label for="email">{{ $t("contact-form.email") }} *</label>
-            <input id="email" name="email" type="email" />
+            <label for="email"
+              >{{ $t("contact-form.email") }} <span>*</span></label
+            >
+            <input id="email" name="email" type="email" v-model="email" />
           </div>
           <div>
             <label for="phone">{{ $t("contact-form.phone") }}</label>
-            <input id="phone" name="phone" type="tel" />
+            <input id="phone" name="phone" type="tel" v-model="phone" />
           </div>
         </div>
         <div>
-          <label for="message">{{ $t("contact-form.message") }} *</label>
-          <textarea rows="3" id="message" name="message" />
+          <label for="message"
+            >{{ $t("contact-form.message") }} <span>*</span></label
+          >
+          <textarea rows="3" id="message" name="message" v-model="message" />
         </div>
         <div><input type="submit" :value="$t('contact-form.send')" /></div>
         <div>
@@ -35,7 +58,39 @@
 
 <script>
 export default {
+  mounted() {
+    // console.log(this.firstName);
+    this.validateInputs();
+  },
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+      firstNameValid: true,
+      lastNameValid: true,
+      emailValid: null,
+      phoneValid: null,
+    };
+  },
   methods: {
+    validateInputs() {
+      var regName = /[a-zA-Z]+$/;
+
+      if (regName.test(this.firstName) || this.firstName === "") {
+        this.firstNameValid = true;
+      } else {
+        this.firstNameValid = false;
+      }
+
+      if (regName.test(this.lastName) || this.lastName === "") {
+        this.lastNameValid = true;
+      } else {
+        this.lastNameValid = false;
+      }
+    },
     submitForm() {
       console.log("submited");
     },
@@ -58,6 +113,7 @@ form {
   > div {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
     > div {
       display: flex;
       flex-direction: column;
@@ -73,7 +129,6 @@ form {
       font-size: 16px;
       font-family: "Montserrat", sans-serif;
       padding: 10px 0 5px 0;
-      margin-bottom: 2rem;
     }
     input[type="submit"] {
       border: none;
@@ -105,6 +160,23 @@ form {
         font-weight: 500;
       }
     }
+    > span {
+      color: red;
+      font-size: 12px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .invalidInput {
+    label {
+      color: red !important;
+      span {
+        color: initial;
+      }
+    }
+    input {
+      border-bottom: 1px solid red !important;
+    }
   }
 }
 
@@ -128,6 +200,12 @@ form {
         &:hover {
           background: #656565;
         }
+      }
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
       }
     }
   }
@@ -154,7 +232,23 @@ form {
           background: #e9e9e9;
         }
       }
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+      }
     }
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

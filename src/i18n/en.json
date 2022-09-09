@@ -10,8 +10,22 @@
     "contact": "contact"
   },
   "my-offer": {
-    "paragraph-1": "Po angielsku: Duis magna lorem, commodo sed ultrices a, hendrerit ut ipsum. Fusce condimentum nunc ac purus lobortis eleifend. Nam ut orci mattis lorem vehicula pellentesque a non lectus. Cras sit amet ex ornare, efficitur ante consectetur, eleifend diam. Aliquam et varius nunc, nec porta purus. Cras tempus ligula eu sagittis ultricies. Aliquam erat volutpat. Proin vitae hendrerit orci. Aenean in vehicula tortor. In hac habitasse platea dictumst. Nullam velit lectus, laoreet id elementum vitae, efficitur sed enim. ",
-    "paragraph-2": "Po angielsku: Duis magna lorem, commodo sed ultrices a, hendrerit ut ipsum. Fusce condimentum nunc ac purus lobortis eleifend. Nam ut orci mattis lorem vehicula pellentesque a non lectus. Cras sit amet ex ornare, efficitur ante consectetur, eleifend diam. Aliquam et varius nunc, nec porta purus. Cras tempus ligula eu sagittis ultricies. Aliquam erat volutpat. Proin vitae hendrerit orci. Aenean in vehicula tortor. In hac habitasse platea dictumst. Nullam velit lectus, laoreet id elementum vitae, efficitur sed enim. "
+    "websites": {
+      "title": "Websites",
+      "description": "Zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
+      "description-2": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA)."
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii."
+    },
+    "frontend": {
+      "title": "Frontend",
+      "description": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
+      "link": "Formularz kontaktowy",
+      "link-2": "LinkedIn",
+      "link-3": "Email"
+    }
   },
   "contact-form": {
     "fistname": "Fist name",
