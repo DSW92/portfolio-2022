@@ -2,7 +2,7 @@
   <section>
     <div class="container">
       <form @submit.prevent="submitForm()">
-        <div :class="{ invalidInput: !firstNameValid }">
+        <div :class="{ invalidInput: firstNameValid === 'invalid' }">
           <label for="first_name"
             >{{ $t("contact-form.fistname") }} <span>*</span></label
           >
@@ -10,44 +10,110 @@
             id="first_name"
             name="first_name"
             type="text"
-            v-model="firstName"
-            @keyup="validateInputs"
+            v-model.trim="firstName"
+            @blur="validateFirstName"
+            @focus="
+              {
+                firstNameValid = 'pending';
+              }
+            "
           />
-          <transition>
-            <span v-if="!firstNameValid">Proszę podać poprawne imię</span>
+          <transition name="show">
+            <span class="error-msg" v-if="firstNameValid === 'invalid'">
+              Proszę podać poprawne imię
+            </span>
           </transition>
         </div>
 
-        <div :class="{ invalidInput: !lastNameValid }">
+        <div :class="{ invalidInput: lastNameValid === 'invalid' }">
           <label for="last_name">{{ $t("contact-form.lastname") }}</label>
           <input
             id="last_name"
             name="last_name"
             type="text"
-            v-model="lastName"
-            @keyup="validateInputs"
+            v-model.trim="lastName"
+            @blur="validateLastName"
+            @focus="
+              {
+                lastNameValid = 'pending';
+              }
+            "
           />
-          <span v-show="!lastNameValid">Proszę podać poprawne nazwisko</span>
+          <transition name="show">
+            <span class="error-msg" v-show="lastNameValid === 'invalid'">
+              Proszę podać poprawne nazwisko
+            </span>
+          </transition>
         </div>
         <div class="email-phone__wrapper">
-          <div>
+          <div :class="{ invalidInput: emailValid === 'invalid' }">
             <label for="email"
               >{{ $t("contact-form.email") }} <span>*</span></label
             >
-            <input id="email" name="email" type="email" v-model="email" />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              v-model.trim="email"
+              @blur="validateEmail"
+              @focus="
+                {
+                  emailValid = 'pending';
+                }
+              "
+            />
+            <transition name="show">
+              <span class="error-msg" v-show="emailValid === 'invalid'">
+                Proszę podać poprawny adres e-mail
+              </span>
+            </transition>
           </div>
-          <div>
+          <div :class="{ invalidInput: phoneValid === 'invalid' }">
             <label for="phone">{{ $t("contact-form.phone") }}</label>
-            <input id="phone" name="phone" type="tel" v-model="phone" />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              v-model="phone"
+              @blur="validatePhone"
+              @focus="
+                {
+                  phoneValid = 'pending';
+                }
+              "
+            />
+            <transition name="show">
+              <span class="error-msg" v-show="phoneValid === 'invalid'">
+                Proszę podać poprawny numer telefonu
+              </span>
+            </transition>
           </div>
         </div>
-        <div>
+        <div :class="{ invalidInput: msgValid === 'invalid' }">
           <label for="message"
             >{{ $t("contact-form.message") }} <span>*</span></label
           >
-          <textarea rows="3" id="message" name="message" v-model="message" />
+          <textarea
+            rows="3"
+            id="message"
+            name="message"
+            v-model="message"
+            @blur="validateMsg"
+            @focus="
+              {
+                msgValid = 'pending';
+              }
+            "
+          />
+          <transition name="show">
+            <span class="error-msg" v-show="msgValid === 'invalid'">
+              Pole "wiadomość" nie może być puste
+            </span>
+          </transition>
         </div>
-        <div><input type="submit" :value="$t('contact-form.send')" /></div>
+        <div>
+          <input type="submit" :value="$t('contact-form.send')" />
+        </div>
         <div>
           <p><span>*</span> {{ $t("contact-form.required") }}</p>
         </div>
@@ -58,10 +124,7 @@
 
 <script>
 export default {
-  mounted() {
-    // console.log(this.firstName);
-    this.validateInputs();
-  },
+  mounted() {},
   data() {
     return {
       firstName: "",
@@ -69,26 +132,51 @@ export default {
       email: "",
       phone: "",
       message: "",
-      firstNameValid: true,
-      lastNameValid: true,
-      emailValid: null,
-      phoneValid: null,
+      firstNameValid: "pending",
+      lastNameValid: "pending",
+      emailValid: "pending",
+      phoneValid: "pending",
+      msgValid: "pending",
+      regName: /[a-zA-Z]+$/,
+      regEmail: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+      regPhone: /^(?=.*[0-9])[- +()0-9]+$/,
+      clearedInputs: [],
     };
   },
   methods: {
-    validateInputs() {
-      var regName = /[a-zA-Z]+$/;
-
-      if (regName.test(this.firstName) || this.firstName === "") {
-        this.firstNameValid = true;
+    validateFirstName() {
+      if (this.regName.test(this.firstName)) {
+        this.firstNameValid = "valid";
       } else {
-        this.firstNameValid = false;
+        this.firstNameValid = "invalid";
       }
-
-      if (regName.test(this.lastName) || this.lastName === "") {
-        this.lastNameValid = true;
+    },
+    validateLastName() {
+      if (this.regName.test(this.lastName) || this.lastName === "") {
+        this.lastNameValid = "valid";
       } else {
-        this.lastNameValid = false;
+        this.lastNameValid = "invalid";
+      }
+    },
+    validateEmail() {
+      if (this.regEmail.test(this.email)) {
+        this.emailValid = "valid";
+      } else {
+        this.emailValid = "invalid";
+      }
+    },
+    validatePhone() {
+      if (this.regPhone.test(this.phone) || this.phone === "") {
+        this.phoneValid = "valid";
+      } else {
+        this.phoneValid = "invalid";
+      }
+    },
+    validateMsg() {
+      if (this.message.length > 0) {
+        this.msgValid = "valid";
+      } else {
+        this.msgValid = "invalid";
       }
     },
     submitForm() {
@@ -104,6 +192,9 @@ section {
   padding-top: 12rem;
   min-height: calc(100vh - 277.5px);
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -113,7 +204,7 @@ form {
   > div {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     > div {
       display: flex;
       flex-direction: column;
@@ -129,6 +220,7 @@ form {
       font-size: 16px;
       font-family: "Montserrat", sans-serif;
       padding: 10px 0 5px 0;
+      margin-bottom: 0.5rem;
     }
     input[type="submit"] {
       border: none;
@@ -160,23 +252,11 @@ form {
         font-weight: 500;
       }
     }
-    > span {
-      color: red;
-      font-size: 12px;
-      margin-top: 0.5rem;
-    }
   }
 
-  .invalidInput {
-    label {
-      color: red !important;
-      span {
-        color: initial;
-      }
-    }
-    input {
-      border-bottom: 1px solid red !important;
-    }
+  span.error-msg {
+    font-size: 12px;
+    color: transparent;
   }
 }
 
@@ -206,6 +286,18 @@ form {
       input:-webkit-autofill:focus,
       input:-webkit-autofill:active {
         transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+    .invalidInput {
+      label {
+        color: rgb(249, 171, 184);
+      }
+      input,
+      textarea {
+        border-bottom: 1px solid rgb(249, 171, 184);
+      }
+      span.error-msg {
+        color: rgb(249, 171, 184);
       }
     }
   }
@@ -239,16 +331,29 @@ form {
         transition: background-color 5000s ease-in-out 0s;
       }
     }
+    .invalidInput {
+      label {
+        color: #ff0000;
+      }
+      input,
+      textarea {
+        border-bottom: 1px solid #ff0000;
+      }
+      span.error-msg {
+        color: #ff0000;
+      }
+    }
   }
 }
 
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.3s ease;
+.show-enter-active,
+.show-leave-active {
+  transition: opacity 0.2s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.show-enter-from,
+.show-leave-to {
   opacity: 0;
+  height: 0;
 }
 </style>
