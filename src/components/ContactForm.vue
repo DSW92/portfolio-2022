@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <form @submit.prevent="submitForm()">
+      <form ref="form" @submit.prevent="sendEmail()">
         <div :class="{ invalidInput: firstNameValid === 'invalid' }">
           <label for="first_name"
             >{{ $t("contact-form.fistname") }} <span>*</span></label
@@ -11,6 +11,7 @@
             name="first_name"
             type="text"
             v-model.trim="firstName"
+            autocomplete="off"
             @blur="validateFirstName"
             @focus="
               {
@@ -20,7 +21,7 @@
           />
           <transition name="show">
             <span class="error-msg" v-if="firstNameValid === 'invalid'">
-              Proszę podać poprawne imię
+              {{ $t("contact-form.messages.first-name") }}
             </span>
           </transition>
         </div>
@@ -32,6 +33,7 @@
             name="last_name"
             type="text"
             v-model.trim="lastName"
+            autocomplete="off"
             @blur="validateLastName"
             @focus="
               {
@@ -41,7 +43,7 @@
           />
           <transition name="show">
             <span class="error-msg" v-show="lastNameValid === 'invalid'">
-              Proszę podać poprawne nazwisko
+              {{ $t("contact-form.messages.last-name") }}
             </span>
           </transition>
         </div>
@@ -53,8 +55,9 @@
             <input
               id="email"
               name="email"
-              type="email"
+              type="text"
               v-model.trim="email"
+              autocomplete="off"
               @blur="validateEmail"
               @focus="
                 {
@@ -64,7 +67,7 @@
             />
             <transition name="show">
               <span class="error-msg" v-show="emailValid === 'invalid'">
-                Proszę podać poprawny adres e-mail
+                {{ $t("contact-form.messages.email") }}
               </span>
             </transition>
           </div>
@@ -75,6 +78,7 @@
               name="phone"
               type="tel"
               v-model="phone"
+              autocomplete="off"
               @blur="validatePhone"
               @focus="
                 {
@@ -84,7 +88,7 @@
             />
             <transition name="show">
               <span class="error-msg" v-show="phoneValid === 'invalid'">
-                Proszę podać poprawny numer telefonu
+                {{ $t("contact-form.messages.phone") }}
               </span>
             </transition>
           </div>
@@ -98,6 +102,7 @@
             id="message"
             name="message"
             v-model="message"
+            autocomplete="off"
             @blur="validateMsg"
             @focus="
               {
@@ -107,12 +112,25 @@
           />
           <transition name="show">
             <span class="error-msg" v-show="msgValid === 'invalid'">
-              Pole "wiadomość" nie może być puste
+              {{ $t("contact-form.messages.message") }}
             </span>
           </transition>
         </div>
         <div>
           <input type="submit" :value="$t('contact-form.send')" />
+          <transition name="show">
+            <span
+              :class="[
+                messageStatus.success
+                  ? 'success-status-msg'
+                  : 'error-status-msg',
+              ]"
+              v-show="messageStatus.message !== ''"
+              class="msg-status"
+            >
+              {{ messageStatus.message }}
+            </span>
+          </transition>
         </div>
         <div>
           <p><span>*</span> {{ $t("contact-form.required") }}</p>
@@ -123,6 +141,8 @@
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
+
 export default {
   mounted() {},
   data() {
@@ -140,7 +160,10 @@ export default {
       regName: /[a-zA-Z]+$/,
       regEmail: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
       regPhone: /^(?=.*[0-9])[- +()0-9]+$/,
-      clearedInputs: [],
+      messageStatus: {
+        success: false,
+        message: "",
+      },
     };
   },
   methods: {
@@ -179,8 +202,43 @@ export default {
         this.msgValid = "invalid";
       }
     },
-    submitForm() {
-      console.log("submited");
+    sendEmail() {
+      if (
+        this.firstNameValid === "valid" &&
+        this.lastNameValid === "valid" &&
+        this.emailValid === "valid" &&
+        this.msgValid === "valid"
+      ) {
+        emailjs
+          .sendForm(
+            "service_gjg3fr9",
+            "template_fcljzkh",
+            this.$refs.form,
+            "Wb7QcsnDyMe4tPV0H"
+          )
+          .then(
+            (result) => {
+              this.messageStatus.success = true;
+              this.messageStatus.message = "Wiadomość została wysłana";
+              console.log("SUCCESS!", result.text);
+              this.firstNameValid = "pending";
+              this.emailValid = "pending";
+              this.msgValid = "pending";
+            },
+            (error) => {
+              this.messageStatus.success = false;
+              this.messageStatus.message =
+                "Coś poszło nie tak. Proszę spróbować ponownie później.";
+              console.log("FAILED...", error.text);
+            }
+          )
+          .then(() => {
+            this.$refs.form.reset();
+          });
+      } else {
+        this.messageStatus.success = false;
+        this.messageStatus.message = "Proszę wypełnić wymagane pola";
+      }
     },
   },
   computed: {},
@@ -298,7 +356,16 @@ form {
       }
       span.error-msg {
         color: rgb(249, 171, 184);
+        transition-duration: 0.2s;
       }
+    }
+    .success-status-msg {
+      color: #6fc56f;
+      transition-duration: 0.2s;
+    }
+    .error-status-msg {
+      color: rgb(249, 171, 184);
+      transition-duration: 0.2s;
     }
   }
 }
@@ -341,7 +408,16 @@ form {
       }
       span.error-msg {
         color: #ff0000;
+        transition-duration: 0.2s;
       }
+    }
+    .success-status-msg {
+      color: #008000;
+      transition-duration: 0.2s;
+    }
+    .error-status-msg {
+      color: #ff0000;
+      transition-duration: 0.2s;
     }
   }
 }

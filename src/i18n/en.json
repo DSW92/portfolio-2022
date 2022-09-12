@@ -10,8 +10,10 @@
     "contact": "contact"
   },
   "my-offer": {
+    "heading": "Czym się zajmuję",
+    "heading-2": "Stack technologiczny",
     "websites": {
-      "title": "Websites",
+      "title": "Strony internetowe",
       "description": "Zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
       "description-2": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA)."
     },
@@ -24,7 +26,11 @@
       "description": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
       "link": "Formularz kontaktowy",
       "link-2": "LinkedIn",
-      "link-3": "Email"
+      "link-3": "Email",
+      "description-2": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    },
+    "stack": {
+      "description": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
     }
   },
   "contact-form": {
@@ -34,6 +40,16 @@
     "phone": "Phone",
     "message": "Message",
     "send": "Send",
-    "required": "required fields"
+    "required": "required fields",
+    "messages": {
+      "error-msg": "Proszę wypełnić wymagane pola.",
+      "error-msg-2": "Coś poszło nie tak. Proszę spróbować ponownie później.",
+      "success-msg": "Wiadomość została wysłana.",
+      "first-name": "Proszę podać poprawne imię",
+      "last-name": "Proszę podać poprawne naziwsko",
+      "email": "Proszę podać poprawny adres e-mail",
+      "phone": "Proszę podać poprawny numer telefonu",
+      "message": "Pole \"wiadomość\" nie może być puste"
+    }
   }
 }

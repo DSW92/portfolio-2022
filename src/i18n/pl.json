@@ -40,6 +40,16 @@
     "phone": "Telefon",
     "message": "Wiadomość",
     "send": "Wyślij",
-    "required": "pola obowiązkowe"
+    "required": "pola obowiązkowe",
+    "messages": {
+      "error-msg": "Proszę wypełnić wymagane pola.",
+      "error-msg-2": "Coś poszło nie tak. Proszę spróbować ponownie później.",
+      "success-msg": "Wiadomość została wysłana.",
+      "first-name": "Proszę podać poprawne imię",
+      "last-name": "Proszę podać poprawne naziwsko",
+      "email": "Proszę podać poprawny adres e-mail",
+      "phone": "Proszę podać poprawny numer telefonu",
+      "message": "Pole \"wiadomość\" nie może być puste"
+    }
   }
 }
