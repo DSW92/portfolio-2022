@@ -1,7 +1,7 @@
 <template>
   <slot>
     <div class="row">
-      <div class="col-12 col-lg-6" v-for="item in results" :key="item.id">
+      <div class="col-12 col-lg-4" v-for="item in results" :key="item.id">
         <div class="portfolio-card__container">
           <img :src="item.thumbnail" alt="" />
           <div class="overlay">
@@ -50,15 +50,14 @@ export default {
 }
 .portfolio-card__container {
   background: #f1f1f1;
-  padding: 4rem 4rem 0 4rem;
   overflow: hidden;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   img {
     width: 100%;
     height: 100%;
     display: block;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
   .overlay {
     position: absolute;

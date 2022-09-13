@@ -6,16 +6,16 @@
           <h3>{{ $t("my-offer.heading") }}</h3>
         </div>
         <div class="col-12 col-md-9">
-          <div>
+          <div v-scrollanimation>
             <h2>{{ $t("my-offer.websites.title") }}</h2>
             <p>{{ $t("my-offer.websites.description") }}</p>
             <p>{{ $t("my-offer.websites.description-2") }}</p>
           </div>
-          <div>
+          <div v-scrollanimation>
             <h2>{{ $t("my-offer.ecommerce.title") }}</h2>
             <p>{{ $t("my-offer.ecommerce.description") }}</p>
           </div>
-          <div>
+          <div v-scrollanimation>
             <h2>{{ $t("my-offer.frontend.title") }}</h2>
             <p>{{ $t("my-offer.frontend.description") }}</p>
             <!-- <p>{{ $t("my-offer.frontend.description-2") }}</p> -->
@@ -178,5 +178,16 @@
     background: #f1f1f1;
     transition-duration: 0.2s;
   }
+}
+
+.scroll-before-enter {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 1s ease-in;
+}
+
+.scroll-enter {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>
