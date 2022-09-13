@@ -38,7 +38,7 @@
           <h3>{{ $t("my-offer.heading-2") }}</h3>
         </div>
         <div class="col-12 col-md-9">
-          <div>
+          <div v-scrollanimation>
             <p>{{ $t("my-offer.stack.description") }}</p>
           </div>
         </div>
@@ -182,8 +182,8 @@
 
 .scroll-before-enter {
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 1s ease-in;
+  transform: translateX(100px);
+  transition: all 0.5s cubic-bezier(1, 0.65, 0.45, 1.54);
 }
 
 .scroll-enter {

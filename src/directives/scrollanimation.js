@@ -1,4 +1,4 @@
-const animatedScrollObserver = new IntersectionObserver((entries, animatedScrollObserver) => {
+const animatedScrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('scroll-enter');

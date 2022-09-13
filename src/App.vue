@@ -2,7 +2,7 @@
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
     <router-view v-slot="{ Component }">
-      <keep-alive include="ContactView">
+      <keep-alive :include="['ContactView', 'HomeView']">
         <component :is="Component" />
       </keep-alive>
     </router-view>
