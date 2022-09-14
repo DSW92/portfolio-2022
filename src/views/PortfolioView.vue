@@ -21,7 +21,9 @@
       </button>
     </div>
     <div class="container">
-      <component :is="activeComponent"></component>
+      <transition name="fade" mode="out-in">
+        <component :is="activeComponent"></component>
+      </transition>
     </div>
   </section>
 </template>
@@ -98,5 +100,15 @@ section {
       }
     }
   }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 500ms ease-out;
 }
 </style>

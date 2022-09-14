@@ -1,23 +1,25 @@
 <template>
-  <slot>
-    <div class="row">
-      <div class="col-12 col-lg-4" v-for="item in results" :key="item.id">
-        <div class="portfolio-card__container">
-          <img :src="item.thumbnail" alt="" />
-          <div class="overlay">
-            <h3>Podgląd na żywo</h3>
-            <div class="tags__container">
-              <span v-show="item.tags">Tagi: </span>
-              <span v-for="(tag, index) in item.tags" :key="index"
-                >{{ tag }}<span>, </span></span
-              >
+  <div>
+    <slot>
+      <div class="row">
+        <div class="col-12 col-lg-4" v-for="item in results" :key="item.id">
+          <div class="portfolio-card__container">
+            <img :src="item.thumbnail" alt="" />
+            <div class="overlay">
+              <h3>Podgląd na żywo</h3>
+              <div class="tags__container">
+                <span v-show="item.tags">Tagi: </span>
+                <span v-for="(tag, index) in item.tags" :key="index"
+                  >{{ tag }}<span>, </span></span
+                >
+              </div>
             </div>
+            <a target="blank" :href="item.url"></a>
           </div>
-          <a target="blank" :href="item.url"></a>
         </div>
       </div>
-    </div>
-  </slot>
+    </slot>
+  </div>
 </template>
 
 <script>
