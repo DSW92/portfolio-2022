@@ -3,7 +3,9 @@
     <the-header></the-header>
     <router-view v-slot="{ Component }">
       <keep-alive :include="['ContactView', 'HomeView']">
-        <component :is="Component" />
+        <transition name="routes" mode="out-in">
+          <component :is="Component" />
+        </transition>
       </keep-alive>
     </router-view>
     <the-footer></the-footer>
@@ -31,9 +33,9 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-* {
-  scroll-behavior: smooth;
-}
+// * {
+//   scroll-behavior: smooth;
+// }
 
 body {
   margin: 0;
@@ -107,5 +109,15 @@ h6 {
       color: #fafafa;
     }
   }
+}
+
+.routes-enter-from,
+.routes-leave-to {
+  opacity: 0;
+}
+
+.routes-enter-active,
+.routes-leave-active {
+  transition: opacity 500ms ease-out;
 }
 </style>

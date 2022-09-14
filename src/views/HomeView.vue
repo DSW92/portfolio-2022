@@ -1,8 +1,10 @@
 <template>
-  <home-hero></home-hero>
-  <keep-alive>
-    <my-offer></my-offer>
-  </keep-alive>
+  <div>
+    <home-hero></home-hero>
+    <keep-alive>
+      <my-offer></my-offer>
+    </keep-alive>
+  </div>
 </template>
 
 <script>

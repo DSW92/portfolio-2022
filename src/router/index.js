@@ -37,14 +37,20 @@ const router = createRouter({
   routes,
   scrollBehavior (to, from, savedPosition) {
     console.log(to, from, savedPosition);
+
     if (to.hash) {
-      return window.scrollTo({ 
-        top: document.querySelector(to.hash).offsetTop - 120, 
-        behavior: 'smooth' 
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ 
+            el: to.hash,
+            top: 120,
+            behavior: 'smooth',
+          })
+        }, 550)
       })
-    } else {
-      return { left: 0, top: 0 }
     }
+
+    
   }
 })
 
