@@ -2,11 +2,11 @@
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
     <router-view v-slot="{ Component }">
-      <keep-alive :include="['ContactView', 'HomeView']">
-        <transition name="routes" mode="out-in">
+      <transition name="routes" mode="out-in">
+        <keep-alive :include="['ContactView', 'HomeView']">
           <component :is="Component" />
-        </transition>
-      </keep-alive>
+        </keep-alive>
+      </transition>
     </router-view>
     <the-footer></the-footer>
   </div>

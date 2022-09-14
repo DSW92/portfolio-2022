@@ -92,7 +92,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  height: 100vh;
+  height: calc(100vh - 50px);
   > div {
     height: 100%;
     display: flex;

@@ -43,8 +43,16 @@ const router = createRouter({
         setTimeout(() => {
           resolve({ 
             el: to.hash,
-            top: 120,
+            top: 62,
             behavior: 'smooth',
+          })
+        }, 0)
+      })
+    } else {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ 
+            top: 0
           })
         }, 550)
       })

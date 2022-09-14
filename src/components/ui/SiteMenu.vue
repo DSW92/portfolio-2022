@@ -1,7 +1,6 @@
 <template>
   <div :class="position">
     <router-link :to="homePageLink">{{ $t("navigation.home") }}</router-link>
-    <router-link :to="{ name: 'offer', hash: '#my-offer' }">Oferta</router-link>
     <router-link :to="aboutPageLink">{{
       $t("navigation.portfolio")
     }}</router-link>

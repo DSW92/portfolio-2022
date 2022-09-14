@@ -1,6 +1,13 @@
 <template>
   <section id="my-offer">
-    <div class="container">
+    <div class="my-offer__tab">
+      <router-link :to="{ name: 'offer', hash: '#my-offer' }">
+        <div class="container">
+          <span>Moja oferta</span>
+        </div>
+      </router-link>
+    </div>
+    <div class="container my-offer__container">
       <div class="row">
         <div class="col-12 col-md-3">
           <h3>{{ $t("my-offer.heading") }}</h3>
@@ -48,7 +55,25 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
+.my-offer__tab {
+  background: #f1f1f1;
+  height: 50px;
+  a {
+    text-decoration: none;
+    > .container {
+      height: 100%;
+      span {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.container.my-offer__container {
   padding: 5rem 0 0 0;
   .row {
     margin-bottom: 3rem;
@@ -125,8 +150,21 @@
 }
 
 .theme-wrapper.dark-mode {
-  .container {
-    border-top: 1px solid #fafafa;
+  .my-offer__tab {
+    border-bottom: 1px solid #fafafa;
+    background: #444;
+    transition-duration: 0.2s;
+    a {
+      .container {
+        span {
+          color: #fafafa;
+          transition-duration: 0.2s;
+        }
+      }
+    }
+  }
+  .container.my-offer__container {
+    // border-top: 1px solid #fafafa;
     .row {
       .col-12 {
         p {
@@ -153,8 +191,21 @@
 }
 
 .theme-wrapper.light-mode {
-  .container {
-    border-top: 1px solid #222;
+  .my-offer__tab {
+    border-bottom: 1px solid #222;
+    background: #f1f1f1;
+    transition-duration: 0.2s;
+    a {
+      .container {
+        span {
+          color: #222;
+          transition-duration: 0.2s;
+        }
+      }
+    }
+  }
+  .container.my-offer__container {
+    // border-top: 1px solid #222;
     .row {
       .col-12 {
         p {
