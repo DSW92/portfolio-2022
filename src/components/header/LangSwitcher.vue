@@ -170,10 +170,24 @@ export default {
   .options {
     span {
       color: #fafafa;
-      transition-duration: 0.2s;
       svg {
         fill: #fafafa;
+      }
+    }
+  }
+  .options {
+    span {
+      transition-duration: 0.2s;
+      svg {
         transition-duration: 0.2s;
+      }
+    }
+  }
+  .selected-option {
+    span {
+      transition: color 0.2s;
+      svg {
+        transition: fill 0.2s;
       }
     }
   }
@@ -184,10 +198,24 @@ export default {
   .options {
     span {
       color: #0d0e15;
-      transition-duration: 0.2s;
       svg {
         fill: #0d0e15;
+      }
+    }
+  }
+  .options {
+    span {
+      transition-duration: 0.2s;
+      svg {
         transition-duration: 0.2s;
+      }
+    }
+  }
+  .selected-option {
+    span {
+      transition: color 0.2s;
+      svg {
+        transition: fill 0.2s;
       }
     }
   }
