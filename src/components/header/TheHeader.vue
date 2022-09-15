@@ -12,6 +12,26 @@ import SiteLogo from "../ui/SiteLogo.vue";
 import HeaderNav from "./HeaderNavigation.vue";
 
 export default {
+  beforeMount() {
+    window.addEventListener("scroll", function () {
+      let lastScroll = 0;
+
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) {
+        console.log("góra");
+        return;
+      }
+
+      if (currentScroll > lastScroll) {
+        console.log("dół");
+      } else if (currentScroll < lastScroll) {
+        console.log("góra");
+      }
+      lastScroll = currentScroll;
+    });
+
+    console.log(window.pageYOffset);
+  },
   components: {
     SiteLogo,
     HeaderNav,
