@@ -49,4 +49,12 @@ a {
     color: #fff;
   }
 }
+
+@media (max-width: 992px) {
+  .header-logo {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
 </style>

@@ -8,14 +8,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      menuOpen: false,
-    };
+  computed: {
+    menuOpen() {
+      return this.$store.getters.menuOpen;
+    },
   },
   methods: {
     openMenu() {
-      this.menuOpen = !this.menuOpen;
+      this.$store.dispatch("openMenu");
     },
   },
 };

@@ -60,4 +60,10 @@ header {
     align-items: center;
   }
 }
+
+@media (max-width: 992px) {
+  header {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}
 </style>
