@@ -106,6 +106,20 @@ export default {
   }
 }
 
+@supports (-moz-appearance: none) {
+  .theme-toggle.dark-mode {
+    svg {
+      mask.moon {
+        circle {
+          r: 12px;
+          transform: scale(0.9);
+          fill: red;
+        }
+      }
+    }
+  }
+}
+
 .theme-toggle.light-mode {
   svg {
     .sun-beams {

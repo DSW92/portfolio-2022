@@ -211,7 +211,7 @@ export default {
       ) {
         emailjs
           .sendForm(
-            "service_gjg3fr9",
+            "service_r50sgzn",
             "template_fcljzkh",
             this.$refs.form,
             "Wb7QcsnDyMe4tPV0H"
