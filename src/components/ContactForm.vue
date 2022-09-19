@@ -247,17 +247,20 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding-top: 12rem;
-  min-height: calc(100vh - 277.5px);
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  > div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 12rem;
+  }
 }
 
 form {
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  // margin: 0 auto;
   padding-bottom: 5rem;
   > div {
     display: flex;
@@ -431,5 +434,33 @@ form {
 .show-leave-to {
   opacity: 0;
   height: 0;
+}
+
+@media (max-width: 992px) {
+  section {
+    > div.container {
+      padding-top: 8rem;
+    }
+    form {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  form > div.email-phone__wrapper {
+    flex-direction: column;
+    margin-bottom: 0;
+    > div {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    > div:first-of-type {
+      margin-right: 0;
+    }
+    > div:nth-of-type(2) {
+      margin-left: 0;
+    }
+  }
 }
 </style>
