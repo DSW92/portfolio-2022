@@ -28,17 +28,17 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin: 0 0 0 1rem;
   /* border: 3px solid #fff; */
 }
 .menu-btn__burger {
   width: 35px;
   height: 4px;
-  background: #fff;
+  background: #fafafa;
   border-radius: 5px;
   //   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .menu-btn__burger::before,
 .menu-btn__burger::after {
@@ -49,7 +49,7 @@ export default {
   background: #fff;
   border-radius: 5px;
   //   box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .menu-btn__burger::before {
   transform: translateY(-10px);
@@ -68,5 +68,35 @@ export default {
 }
 .menu-btn.open .menu-btn__burger::after {
   transform: rotate(-45deg) translate(10px, 10px);
+}
+
+.theme-wrapper.dark-mode {
+  .menu-btn {
+    .menu-btn__burger,
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+      background: #fafafa;
+    }
+    &.open {
+      .menu-btn__burger {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.theme-wrapper.light-mode {
+  .menu-btn {
+    .menu-btn__burger,
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+      background: #222;
+    }
+    &.open {
+      .menu-btn__burger {
+        background: transparent;
+      }
+    }
+  }
 }
 </style>
