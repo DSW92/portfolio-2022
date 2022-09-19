@@ -190,11 +190,11 @@
   .container.my-offer__container {
     padding-top: 3rem;
     > .row {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       > .col-12.col-md-3 {
         h3 {
           padding-bottom: 0.5rem;
-          margin-bottom: 2rem;
+          // margin-bottom: 2rem;
           font-size: 1.7rem;
         }
       }
@@ -208,6 +208,10 @@
 
   .theme-wrapper.light-mode .container.my-offer__container .row .col-12 > h3 {
     border-bottom: 1px solid #222;
+  }
+
+  .theme-wrapper.dark-mode .container.my-offer__container .row .col-12 > h3 {
+    border-bottom: 1px solid #fafafa;
   }
 }
 </style>

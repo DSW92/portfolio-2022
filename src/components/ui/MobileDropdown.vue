@@ -36,7 +36,8 @@ section {
   padding: 1rem 0 1rem 0;
   background: #222;
   transform: translateY(-72px);
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   top: 64px;
   left: 0;
   width: 100%;

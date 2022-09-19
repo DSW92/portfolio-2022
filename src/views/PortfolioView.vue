@@ -74,6 +74,10 @@ section {
   }
 }
 
+div.container:not(.tabs__container) {
+  padding-bottom: 2rem;
+}
+
 .theme-wrapper.dark-mode {
   .tabs__container {
     button {
@@ -110,5 +114,12 @@ section {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 500ms ease-out;
+}
+
+@media (max-width: 992px) {
+  .tabs__container {
+    padding-top: 8rem;
+    margin-bottom: 3rem;
+  }
 }
 </style>

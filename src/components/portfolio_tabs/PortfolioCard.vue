@@ -2,7 +2,11 @@
   <div>
     <slot>
       <div class="row">
-        <div class="col-12 col-lg-4" v-for="item in results" :key="item.id">
+        <div
+          class="col-12 col-md-6 col-xl-4"
+          v-for="item in results"
+          :key="item.id"
+        >
           <div class="portfolio-card__container">
             <img :src="item.thumbnail" alt="" />
             <div class="overlay">
