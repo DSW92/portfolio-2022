@@ -88,4 +88,17 @@ div.container {
     }
   }
 }
+
+@media (max-width: 380px) {
+  div.container {
+    > div {
+      > div:not(.mobile-menu) {
+        flex-direction: column-reverse;
+        > div:last-of-type {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
 </style>
