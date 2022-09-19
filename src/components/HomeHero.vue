@@ -104,6 +104,7 @@ section {
       font-size: 150px;
       color: #222;
       text-transform: uppercase;
+      text-align: center;
     }
     .labels__container {
       display: flex;
@@ -118,6 +119,7 @@ section {
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       h3 {
         margin: 0;
         font-size: 3rem;
@@ -237,6 +239,67 @@ section {
   }
   50% {
     border-color: #fafafa;
+  }
+}
+
+@media (max-width: 1400px) {
+  section {
+    > div {
+      > h1 {
+        font-size: 120px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  section {
+    > div {
+      > h1 {
+        font-size: 90px;
+      }
+      .labels-static__container {
+        h3 {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    > div {
+      > h1 {
+        font-size: 70px;
+      }
+      .labels-static__container {
+        h3 {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  section {
+    > div {
+      > h1 {
+        text-align: center;
+        font-size: 60px;
+      }
+      .labels-static__container {
+        flex-wrap: wrap;
+        justify-content: center;
+        span {
+          display: none;
+        }
+        h3 {
+          margin: 0 1rem 1rem 1rem;
+        }
+      }
+    }
   }
 }
 </style>

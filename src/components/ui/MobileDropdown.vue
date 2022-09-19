@@ -5,7 +5,7 @@
         <site-menu position="mobile-menu"></site-menu>
         <div>
           <lang-switcher></lang-switcher>
-          <linked-link></linked-link>
+          <linked-link class="linked-link__mobile"></linked-link>
         </div>
       </div>
     </div>
@@ -71,6 +71,10 @@ div.container {
   }
 }
 
+.linked-link__mobile {
+  margin: 0 0 0 1rem;
+}
+
 @media (max-width: 768px) {
   section {
     transform: translateY(-155px);
@@ -94,6 +98,7 @@ div.container {
     > div {
       > div:not(.mobile-menu) {
         flex-direction: column-reverse;
+        align-items: flex-end;
         > div:last-of-type {
           margin-bottom: 1rem;
         }

@@ -2,14 +2,13 @@
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
     <mobile-dropdown class="desktop-hidden"></mobile-dropdown>
-    <!-- <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component }">
       <transition name="routes" mode="out-in">
         <keep-alive :include="['ContactView', 'HomeView']">
           <component :is="Component" />
         </keep-alive>
       </transition>
-    </router-view> -->
-    <div style="height: 200px"></div>
+    </router-view>
     <the-footer></the-footer>
   </div>
 </template>
