@@ -1,21 +1,21 @@
 <template>
   <div>
     <home-hero></home-hero>
-    <!-- <keep-alive>
+    <keep-alive>
       <my-offer></my-offer>
-    </keep-alive> -->
+    </keep-alive>
   </div>
 </template>
 
 <script>
 import HomeHero from "../components/HomeHero.vue";
-// import MyOffer from "../components/MyOffer.vue";
+import MyOffer from "../components/MyOffer.vue";
 
 export default {
   name: "HomeView",
   components: {
     HomeHero,
-    // MyOffer,
+    MyOffer,
   },
 };
 </script>

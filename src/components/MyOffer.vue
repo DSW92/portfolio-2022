@@ -74,7 +74,9 @@
 }
 
 .container.my-offer__container {
-  padding: 5rem 0 0 0;
+  padding-top: 5rem;
+  // padding-bottom: 2rem;
+  overflow: hidden;
   .row {
     margin-bottom: 3rem;
     .col-12.col-md-9 {
@@ -95,56 +97,6 @@
           }
         }
       }
-    }
-  }
-}
-
-.picture__container {
-  width: 100%;
-  height: 100%;
-  background: #f1f1f1;
-  box-sizing: border-box;
-  overflow: hidden;
-  &.websites {
-    padding: 4.75rem 4.75rem 0 4.75rem;
-    > div {
-      background-image: url("../assets/website.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    }
-  }
-  &.ecommerce {
-    padding: 4.75rem 4.75rem 0 4.75rem;
-    > div {
-      background-image: url("../assets/ecommerce.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    }
-  }
-  &.frontend {
-    padding: 4.75rem 4.75rem 0 4.75rem;
-    > div {
-      background-image: url("../assets/programmer.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      min-height: 250px;
-      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-        rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     }
   }
 }
@@ -184,10 +136,6 @@
       }
     }
   }
-  .picture__container {
-    background: #555;
-    transition-duration: 0.2s;
-  }
 }
 
 .theme-wrapper.light-mode {
@@ -225,10 +173,6 @@
       }
     }
   }
-  .picture__container {
-    background: #f1f1f1;
-    transition-duration: 0.2s;
-  }
 }
 
 .scroll-before-enter {
@@ -240,5 +184,30 @@
 .scroll-enter {
   opacity: 1;
   transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .container.my-offer__container {
+    padding-top: 3rem;
+    > .row {
+      margin-bottom: 3rem;
+      > .col-12.col-md-3 {
+        h3 {
+          padding-bottom: 0.5rem;
+          margin-bottom: 2rem;
+          font-size: 1.7rem;
+        }
+      }
+      > .col-12.col-md-9 {
+        > div {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+  .theme-wrapper.light-mode .container.my-offer__container .row .col-12 > h3 {
+    border-bottom: 1px solid #222;
+  }
 }
 </style>
