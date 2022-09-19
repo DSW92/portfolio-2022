@@ -12,29 +12,36 @@ import SiteLogo from "../ui/SiteLogo.vue";
 import HeaderNav from "./HeaderNavigation.vue";
 
 export default {
-  beforeMount() {
-    window.addEventListener("scroll", function () {
-      let lastScroll = 0;
-
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= 0) {
-        console.log("góra");
-        return;
-      }
-
-      if (currentScroll > lastScroll) {
-        console.log("dół");
-      } else if (currentScroll < lastScroll) {
-        console.log("góra");
-      }
-      lastScroll = currentScroll;
-    });
-
-    console.log(window.pageYOffset);
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
   },
   components: {
     SiteLogo,
     HeaderNav,
+  },
+  data() {
+    return {
+      lastScroll: 0,
+    };
+  },
+  methods: {
+    onScroll(e) {
+      const currentScroll = e.target.documentElement.scrollTop;
+      if (currentScroll <= 0) {
+        document.querySelector("header").classList.remove("scrolled-down");
+        document.querySelector("header").classList.remove("scrolled-up");
+        return;
+      }
+
+      if (currentScroll > this.lastScroll) {
+        document.querySelector("header").classList.remove("scrolled-up");
+        document.querySelector("header").classList.add("scrolled-down");
+      } else if (currentScroll < this.lastScroll) {
+        document.querySelector("header").classList.remove("scrolled-down");
+        document.querySelector("header").classList.add("scrolled-up");
+      }
+      this.lastScroll = currentScroll;
+    },
   },
 };
 </script>

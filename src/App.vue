@@ -1,25 +1,25 @@
 <template>
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
-    <router-view v-slot="{ Component }">
+    <!-- <router-view v-slot="{ Component }">
       <transition name="routes" mode="out-in">
         <keep-alive :include="['ContactView', 'HomeView']">
           <component :is="Component" />
         </keep-alive>
       </transition>
     </router-view>
-    <the-footer></the-footer>
+    <the-footer></the-footer> -->
   </div>
 </template>
 
 <script>
 import TheHeader from "./components/header/TheHeader.vue";
-import TheFooter from "./components/footer/TheFooter.vue";
+// import TheFooter from "./components/footer/TheFooter.vue";
 
 export default {
   components: {
     TheHeader,
-    TheFooter,
+    // TheFooter,
   },
   computed: {
     isDarkMode() {
@@ -73,6 +73,18 @@ h6 {
   header {
     background: #222;
     transition-duration: 0.2s;
+    &.scrolled-down {
+      padding: 0.5rem 0 0.5rem 0;
+      > div {
+        > div {
+          > a {
+            h1 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
   }
   footer {
     a,
@@ -98,6 +110,18 @@ h6 {
   header {
     background: #fff;
     transition-duration: 0.2s;
+    &.scrolled-down {
+      padding: 0.5rem 0 0.5rem 0;
+      > div {
+        > div {
+          > a {
+            h1 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
   }
   footer {
     a,
@@ -119,5 +143,11 @@ h6 {
 .routes-enter-active,
 .routes-leave-active {
   transition: opacity 500ms ease-out;
+}
+
+@media (max-width: 575px) {
+  .container {
+    width: initial;
+  }
 }
 </style>

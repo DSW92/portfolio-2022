@@ -11,11 +11,6 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/',
-    name: 'offer',
-    component: HomeView
-  },
-  {
     path: '/portfolio',
     name: 'portfolio',
     component: PortfolioView
@@ -35,15 +30,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior (to, from, savedPosition) {
-    console.log(to, from, savedPosition);
-
+  scrollBehavior (to) {
     if (to.hash) {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({ 
             el: to.hash,
-            top: 62,
+            top: 15,
             behavior: 'smooth',
           })
         }, 0)

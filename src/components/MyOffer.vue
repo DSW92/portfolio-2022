@@ -1,7 +1,7 @@
 <template>
   <section id="my-offer">
     <div class="my-offer__tab">
-      <router-link :to="{ name: 'offer', hash: '#my-offer' }">
+      <router-link :to="{ name: 'home', hash: '#my-offer' }">
         <div class="container">
           <span>Moja oferta</span>
         </div>

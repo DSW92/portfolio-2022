@@ -1,9 +1,10 @@
 <template>
   <nav>
-    <site-menu position="header-menu"></site-menu>
+    <site-menu class="mobile-hidden" position="header-menu"></site-menu>
     <theme-switcher></theme-switcher>
-    <lang-switcher></lang-switcher>
-    <linked-link></linked-link>
+    <lang-switcher class="mobile-hidden"></lang-switcher>
+    <linked-link class="mobile-hidden"></linked-link>
+    <hamburger-icon class="desktop-hidden"></hamburger-icon>
   </nav>
 </template>
 
@@ -12,6 +13,7 @@ import LinkedLink from "../ui/LinkedLink.vue";
 import SiteMenu from "../ui/SiteMenu.vue";
 import LangSwitcher from "../header/LangSwitcher.vue";
 import ThemeSwitcher from "../header/ThemeSwitcher.vue";
+import HamburgerIcon from "../ui/HamburgerIcon.vue";
 
 export default {
   components: {
@@ -19,6 +21,7 @@ export default {
     SiteMenu,
     LangSwitcher,
     ThemeSwitcher,
+    HamburgerIcon,
   },
 };
 </script>
@@ -27,5 +30,17 @@ export default {
 nav {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 992px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .desktop-hidden {
+    display: none;
+  }
 }
 </style>
