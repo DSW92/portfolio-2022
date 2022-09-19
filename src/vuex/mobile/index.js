@@ -8,13 +8,13 @@ export default {
         }
     },
     mutations: {
-        openMenu(state) {
+        toggleMenu(state) {
             state.menuOpen = !state.menuOpen;
         }
     },
     actions: {
-        openMenu(context) {
-            context.commit('openMenu');
+        toggleMenu(context) {
+            context.commit('toggleMenu');
         }
     }
 }

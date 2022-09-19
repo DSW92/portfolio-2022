@@ -1,6 +1,7 @@
 <template>
   <div class="theme-wrapper" :class="isDarkMode ? 'dark-mode' : 'light-mode'">
     <the-header></the-header>
+    <mobile-dropdown class="desktop-hidden"></mobile-dropdown>
     <!-- <router-view v-slot="{ Component }">
       <transition name="routes" mode="out-in">
         <keep-alive :include="['ContactView', 'HomeView']">
@@ -15,11 +16,13 @@
 <script>
 import TheHeader from "./components/header/TheHeader.vue";
 // import TheFooter from "./components/footer/TheFooter.vue";
+import MobileDropdown from "./components/ui/MobileDropdown.vue";
 
 export default {
   components: {
     TheHeader,
     // TheFooter,
+    MobileDropdown,
   },
   computed: {
     isDarkMode() {
@@ -55,6 +58,10 @@ h4,
 h5,
 h6 {
   margin: 0 0 1rem 0;
+}
+
+.theme-wrapper {
+  position: relative;
 }
 
 .theme-wrapper.dark-mode {
@@ -148,6 +155,18 @@ h6 {
 @media (max-width: 575px) {
   .container {
     width: initial;
+  }
+}
+
+@media (max-width: 992px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .desktop-hidden {
+    display: none;
   }
 }
 </style>

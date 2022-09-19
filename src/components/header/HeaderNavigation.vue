@@ -31,16 +31,4 @@ nav {
   display: flex;
   align-items: center;
 }
-
-@media (max-width: 992px) {
-  .mobile-hidden {
-    display: none;
-  }
-}
-
-@media (min-width: 992px) {
-  .desktop-hidden {
-    display: none;
-  }
-}
 </style>

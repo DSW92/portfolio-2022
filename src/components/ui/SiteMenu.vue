@@ -1,10 +1,12 @@
 <template>
   <div :class="position">
-    <router-link :to="homePageLink">{{ $t("navigation.home") }}</router-link>
-    <router-link :to="aboutPageLink">{{
+    <router-link :to="homePageLink" @click="closeDropdown">{{
+      $t("navigation.home")
+    }}</router-link>
+    <router-link :to="aboutPageLink" @click="closeDropdown">{{
       $t("navigation.portfolio")
     }}</router-link>
-    <router-link :to="contactPageLink">{{
+    <router-link :to="contactPageLink" @click="closeDropdown">{{
       $t("navigation.contact")
     }}</router-link>
   </div>
@@ -45,6 +47,11 @@ export default {
       } else {
         return { name: "contact" };
       }
+    },
+  },
+  methods: {
+    closeDropdown() {
+      this.$store.dispatch("toggleMenu");
     },
   },
 };
@@ -109,6 +116,22 @@ export default {
   }
 }
 
+.mobile-menu {
+  display: flex;
+  flex-direction: row;
+  a {
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 1rem 0 0;
+    &:hover,
+    &.router-link-active.router-link-exact-active {
+      text-decoration: underline;
+    }
+  }
+}
+
 .theme-wrapper.dark-mode {
   .header-menu {
     a {
@@ -117,6 +140,12 @@ export default {
       &:hover {
         color: #fff;
       }
+    }
+  }
+  .mobile-menu {
+    a {
+      color: #fafafa;
+      transition-duration: 0.2s;
     }
   }
 }
@@ -130,6 +159,21 @@ export default {
         opacity: 0.8;
         color: #333;
       }
+    }
+  }
+  .mobile-menu {
+    a {
+      color: #222;
+      transition-duration: 0.2s;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    flex-direction: column;
+    a {
+      margin: 0 0 1rem 0;
     }
   }
 }

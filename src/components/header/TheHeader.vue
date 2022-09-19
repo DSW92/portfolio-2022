@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ 'dropdown-open': dropdownOpen }">
     <div class="container">
       <site-logo position="header-logo"></site-logo>
       <header-nav></header-nav>
@@ -23,6 +23,11 @@ export default {
     return {
       lastScroll: 0,
     };
+  },
+  computed: {
+    dropdownOpen() {
+      return this.$store.getters.menuOpen;
+    },
   },
   methods: {
     onScroll(e) {
@@ -52,7 +57,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  background: #fff;
+  background: transparent;
   z-index: 999;
   > div {
     display: flex;

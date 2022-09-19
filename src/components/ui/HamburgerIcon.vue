@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div :class="{ open: menuOpen }" class="menu-btn" @click="openMenu">
+    <div :class="{ open: menuOpen }" class="menu-btn" @click="toggleMenu">
       <div class="menu-btn__burger"></div>
     </div>
   </section>
@@ -14,8 +14,8 @@ export default {
     },
   },
   methods: {
-    openMenu() {
-      this.$store.dispatch("openMenu");
+    toggleMenu() {
+      this.$store.dispatch("toggleMenu");
     },
   },
 };
