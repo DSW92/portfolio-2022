@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     closeDropdown() {
-      this.$store.dispatch("toggleMenu");
+      this.$store.dispatch("disableMenu");
     },
   },
 };

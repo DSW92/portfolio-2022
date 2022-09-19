@@ -8,20 +8,21 @@
           <component :is="Component" />
         </keep-alive>
       </transition>
-    </router-view>
-    <the-footer></the-footer> -->
+    </router-view> -->
+    <div style="height: 200px"></div>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
 import TheHeader from "./components/header/TheHeader.vue";
-// import TheFooter from "./components/footer/TheFooter.vue";
+import TheFooter from "./components/footer/TheFooter.vue";
 import MobileDropdown from "./components/ui/MobileDropdown.vue";
 
 export default {
   components: {
     TheHeader,
-    // TheFooter,
+    TheFooter,
     MobileDropdown,
   },
   computed: {

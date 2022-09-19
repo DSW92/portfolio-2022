@@ -3,7 +3,7 @@
     <site-menu class="mobile-hidden" position="header-menu"></site-menu>
     <theme-switcher></theme-switcher>
     <lang-switcher class="mobile-hidden"></lang-switcher>
-    <linked-link class="mobile-hidden"></linked-link>
+    <linked-link class="mobile-hidden linkedin-header"></linked-link>
     <hamburger-icon class="desktop-hidden"></hamburger-icon>
   </nav>
 </template>
@@ -30,5 +30,9 @@ export default {
 nav {
   display: flex;
   align-items: center;
+}
+
+.linkedin-header {
+  margin: 0 0 0 1rem;
 }
 </style>

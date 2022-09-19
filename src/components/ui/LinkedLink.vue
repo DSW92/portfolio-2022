@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 .linkedin__container {
-  margin: 0 0 0 1.5rem;
+  // margin: 0 0 0 1.5rem;
   > a {
     height: 40px;
     display: block;
