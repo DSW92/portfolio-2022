@@ -10,6 +10,7 @@
     "contact": "kontakt"
   },
   "my-offer": {
+    "title": "Moja oferta",
     "heading": "Czym się zajmuję",
     "heading-2": "Stack technologiczny",
     "websites": {
@@ -31,6 +32,20 @@
     },
     "stack": {
       "description": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    }
+  },
+  "portfolio": {
+    "tabs": {
+      "other": "Różne"
+    },
+    "cards": {
+      "preview": "Podgląg na żywo",
+      "tags": "Tagi",
+      "notes": {
+        "title": "Uwagi",
+        "msg-privacy": "Strona została pozbawiona danych klienta z uwagi na prywatność.",
+        "msg-company": "Strona wykonana na zlecenie"
+      }
     }
   },
   "contact-form": {

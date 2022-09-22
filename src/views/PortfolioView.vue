@@ -17,7 +17,7 @@
         :class="{ active: activeComponent === 'miscellaneous-tab' }"
         @click="changeTab('miscellaneous-tab')"
       >
-        Pozostałe
+        {{ $t("portfolio.tabs.other") }}
       </button>
     </div>
     <div class="container">

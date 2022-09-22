@@ -10,27 +10,42 @@
     "contact": "contact"
   },
   "my-offer": {
-    "heading": "Czym się zajmuję",
-    "heading-2": "Stack technologiczny",
+    "title": "My offer",
+    "heading": "What I do",
+    "heading-2": "Tech stack",
     "websites": {
-      "title": "Strony internetowe",
-      "description": "Zbudowane w oparciu o systemy zarządzania treścią (CMS) jak WordPress lub całkowicie autorskie rozwiązania.",
-      "description-2": "Strona wizytówka, \"landing page\", strona firmowa, portal, blog, strona typu Single Page Aplication (SPA)."
+      "title": "Websites",
+      "description": "Based on content managment systems (CMS) like WordPress or entirely customized project",
+      "description-2": "Bussiness card page, \"landing page\", company website, portal, blog, Single Page Aplication type website (SPA)."
     },
     "ecommerce": {
       "title": "E-commerce",
-      "description": "Sklepy internetowe. Od sklepów jednoproduktowych, aż do platform sprzedaży z dużą ilością produków i kategorii."
+      "description": "Online stores. From single-product stores to sales platforms with a large number of products and categories."
     },
     "frontend": {
       "title": "Frontend",
-      "description": "Potrzebujesz front-end developera do swojego zespołu? Zapraszam do kontaktu:",
-      "link": "Formularz kontaktowy",
+      "description": "Need a front-end developer for your team? Feel free to contact me:",
+      "link": "Contact form",
       "link-2": "LinkedIn",
       "link-3": "Email",
       "description-2": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
     },
     "stack": {
       "description": "HTML, CSS, SCSS, Bootstrap, JavaScript, TypeScript, Vue.js, React.js, WordPress, WooCommerce, PHP"
+    }
+  },
+  "portfolio": {
+    "tabs": {
+      "other": "Miscellaneous"
+    },
+    "cards": {
+      "preview": "Live preview",
+      "tags": "Tags",
+      "notes": {
+        "title": "Notes",
+        "msg-privacy": "The website has been stripped of customer data for privacy reasons.",
+        "msg-company": "The website commissioned by"
+      }
     }
   },
   "contact-form": {
@@ -42,14 +57,14 @@
     "send": "Send",
     "required": "required fields",
     "messages": {
-      "error-msg": "Proszę wypełnić wymagane pola.",
-      "error-msg-2": "Coś poszło nie tak. Proszę spróbować ponownie później.",
-      "success-msg": "Wiadomość została wysłana.",
-      "first-name": "Proszę podać poprawne imię",
-      "last-name": "Proszę podać poprawne naziwsko",
-      "email": "Proszę podać poprawny adres e-mail",
-      "phone": "Proszę podać poprawny numer telefonu",
-      "message": "Pole \"wiadomość\" nie może być puste"
+      "error-msg": "Please fill in the required fields.",
+      "error-msg-2": "Something went wrong. Please try again later.",
+      "success-msg": "Message was sent",
+      "first-name": "Please enter a valid name",
+      "last-name": "Please enter a valid name",
+      "email": "Please enter a valid email adress",
+      "phone": "Please enter a valid phone number",
+      "message": "The \"message\" field cannot be empty"
     }
   }
 }

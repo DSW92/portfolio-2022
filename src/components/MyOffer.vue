@@ -3,7 +3,7 @@
     <div class="my-offer__tab">
       <router-link :to="{ name: 'home', hash: '#my-offer' }">
         <div class="container">
-          <span>Moja oferta</span>
+          <span>{{ $t("my-offer.title") }}</span>
         </div>
       </router-link>
     </div>
@@ -188,7 +188,7 @@
 
 @media (max-width: 768px) {
   .container.my-offer__container {
-    padding-top: 3rem;
+    padding-top: 2rem;
     > .row {
       margin-bottom: 2rem;
       > .col-12.col-md-3 {
@@ -201,6 +201,14 @@
       > .col-12.col-md-9 {
         > div {
           margin-bottom: 2rem;
+        }
+      }
+
+      &:first-of-type {
+        > .col-12.col-md-3 {
+          h3 {
+            display: none;
+          }
         }
       }
     }

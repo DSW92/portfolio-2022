@@ -219,7 +219,9 @@ export default {
           .then(
             (result) => {
               this.messageStatus.success = true;
-              this.messageStatus.message = "Wiadomość została wysłana";
+              this.messageStatus.message = `${this.$t(
+                "contact-form.messages.success-msg"
+              )}`;
               console.log("SUCCESS!", result.text);
               this.firstNameValid = "pending";
               this.emailValid = "pending";
@@ -227,8 +229,9 @@ export default {
             },
             (error) => {
               this.messageStatus.success = false;
-              this.messageStatus.message =
-                "Coś poszło nie tak. Proszę spróbować ponownie później.";
+              this.messageStatus.message = `${this.$t(
+                "contact-form.messages.error-msg-2"
+              )}`;
               console.log("FAILED...", error.text);
             }
           )
@@ -237,7 +240,9 @@ export default {
           });
       } else {
         this.messageStatus.success = false;
-        this.messageStatus.message = "Proszę wypełnić wymagane pola";
+        this.messageStatus.message = `${this.$t(
+          "contact-form.messages.error-msg"
+        )}`;
       }
     },
   },
