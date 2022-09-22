@@ -3,22 +3,13 @@
     <div class="container">
       <form ref="form" @submit.prevent="sendEmail()">
         <div :class="{ invalidInput: firstNameValid === 'invalid' }">
-          <label for="first_name"
-            >{{ $t("contact-form.fistname") }} <span>*</span></label
-          >
-          <input
-            id="first_name"
-            name="first_name"
-            type="text"
-            v-model.trim="firstName"
-            autocomplete="off"
-            @blur="validateFirstName"
-            @focus="
+          <label for="first_name">{{ $t("contact-form.fistname") }} <span>*</span></label>
+          <input id="first_name" name="first_name" type="text" v-model.trim="firstName" autocomplete="off"
+            @blur="validateFirstName" @focus="
               {
                 firstNameValid = 'pending';
               }
-            "
-          />
+            " />
           <transition name="show">
             <span class="error-msg" v-if="firstNameValid === 'invalid'">
               {{ $t("contact-form.messages.first-name") }}
@@ -28,19 +19,12 @@
 
         <div :class="{ invalidInput: lastNameValid === 'invalid' }">
           <label for="last_name">{{ $t("contact-form.lastname") }}</label>
-          <input
-            id="last_name"
-            name="last_name"
-            type="text"
-            v-model.trim="lastName"
-            autocomplete="off"
-            @blur="validateLastName"
-            @focus="
+          <input id="last_name" name="last_name" type="text" v-model.trim="lastName" autocomplete="off"
+            @blur="validateLastName" @focus="
               {
                 lastNameValid = 'pending';
               }
-            "
-          />
+            " />
           <transition name="show">
             <span class="error-msg" v-show="lastNameValid === 'invalid'">
               {{ $t("contact-form.messages.last-name") }}
@@ -49,22 +33,13 @@
         </div>
         <div class="email-phone__wrapper">
           <div :class="{ invalidInput: emailValid === 'invalid' }">
-            <label for="email"
-              >{{ $t("contact-form.email") }} <span>*</span></label
-            >
-            <input
-              id="email"
-              name="email"
-              type="text"
-              v-model.trim="email"
-              autocomplete="off"
-              @blur="validateEmail"
+            <label for="email">{{ $t("contact-form.email") }} <span>*</span></label>
+            <input id="email" name="email" type="text" v-model.trim="email" autocomplete="off" @blur="validateEmail"
               @focus="
                 {
                   emailValid = 'pending';
                 }
-              "
-            />
+              " />
             <transition name="show">
               <span class="error-msg" v-show="emailValid === 'invalid'">
                 {{ $t("contact-form.messages.email") }}
@@ -73,19 +48,11 @@
           </div>
           <div :class="{ invalidInput: phoneValid === 'invalid' }">
             <label for="phone">{{ $t("contact-form.phone") }}</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              v-model="phone"
-              autocomplete="off"
-              @blur="validatePhone"
-              @focus="
-                {
-                  phoneValid = 'pending';
-                }
-              "
-            />
+            <input id="phone" name="phone" type="tel" v-model="phone" autocomplete="off" @blur="validatePhone" @focus="
+              {
+                phoneValid = 'pending';
+              }
+            " />
             <transition name="show">
               <span class="error-msg" v-show="phoneValid === 'invalid'">
                 {{ $t("contact-form.messages.phone") }}
@@ -94,22 +61,13 @@
           </div>
         </div>
         <div :class="{ invalidInput: msgValid === 'invalid' }">
-          <label for="message"
-            >{{ $t("contact-form.message") }} <span>*</span></label
-          >
-          <textarea
-            rows="3"
-            id="message"
-            name="message"
-            v-model="message"
-            autocomplete="off"
-            @blur="validateMsg"
+          <label for="message">{{ $t("contact-form.message") }} <span>*</span></label>
+          <textarea rows="3" id="message" name="message" v-model="message" autocomplete="off" @blur="validateMsg"
             @focus="
               {
                 msgValid = 'pending';
               }
-            "
-          />
+            " />
           <transition name="show">
             <span class="error-msg" v-show="msgValid === 'invalid'">
               {{ $t("contact-form.messages.message") }}
@@ -119,15 +77,11 @@
         <div>
           <input type="submit" :value="$t('contact-form.send')" />
           <transition name="show">
-            <span
-              :class="[
-                messageStatus.success
-                  ? 'success-status-msg'
-                  : 'error-status-msg',
-              ]"
-              v-show="messageStatus.message !== ''"
-              class="msg-status"
-            >
+            <span :class="[
+              messageStatus.success
+                ? 'success-status-msg'
+                : 'error-status-msg',
+            ]" v-show="messageStatus.message !== ''" class="msg-status">
               {{ messageStatus.message }}
             </span>
           </transition>
@@ -144,7 +98,7 @@
 import emailjs from "@emailjs/browser";
 
 export default {
-  mounted() {},
+  mounted() { },
   data() {
     return {
       firstName: "",
@@ -253,7 +207,8 @@ export default {
 <style lang="scss" scoped>
 section {
   box-sizing: border-box;
-  > div.container {
+
+  >div.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,17 +222,21 @@ form {
   max-width: 800px;
   // margin: 0 auto;
   padding-bottom: 5rem;
-  > div {
+
+  >div {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
-    > div {
+
+    >div {
       display: flex;
       flex-direction: column;
     }
+
     label {
       font-weight: 500;
     }
+
     input,
     textarea {
       border: none;
@@ -288,6 +247,7 @@ form {
       padding: 10px 0 5px 0;
       margin-bottom: 0.5rem;
     }
+
     input[type="submit"] {
       border: none;
       font-family: "Montserrat", sans-serif;
@@ -298,21 +258,27 @@ form {
       padding: 10px 0;
       margin-bottom: 1rem;
     }
+
     textarea {
       overflow: hidden;
     }
+
     &.email-phone__wrapper {
       flex-direction: row;
-      > div {
+
+      >div {
         width: 50%;
       }
-      > div:first-of-type {
+
+      >div:first-of-type {
         margin-right: 1rem;
       }
-      > div:last-of-type {
+
+      >div:last-of-type {
         margin-left: 1rem;
       }
     }
+
     p {
       span {
         font-weight: 500;
@@ -328,11 +294,12 @@ form {
 
 .theme-wrapper.dark-mode {
   form {
-    > div {
+    >div {
       label {
         color: #fafafa;
         transition-duration: 0.2s;
       }
+
       input,
       textarea {
         background: #333;
@@ -340,13 +307,16 @@ form {
         color: #fafafa;
         transition-duration: 0.2s;
       }
+
       input[type="submit"] {
         background: #555;
         border: none;
+
         &:hover {
           background: #656565;
         }
       }
+
       input:-webkit-autofill,
       input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
@@ -354,23 +324,28 @@ form {
         transition: background-color 5000s ease-in-out 0s;
       }
     }
+
     .invalidInput {
       label {
         color: rgb(249, 171, 184);
       }
+
       input,
       textarea {
         border-bottom: 1px solid rgb(249, 171, 184);
       }
+
       span.error-msg {
         color: rgb(249, 171, 184);
         transition-duration: 0.2s;
       }
     }
+
     .success-status-msg {
       color: #6fc56f;
       transition-duration: 0.2s;
     }
+
     .error-status-msg {
       color: rgb(249, 171, 184);
       transition-duration: 0.2s;
@@ -380,11 +355,12 @@ form {
 
 .theme-wrapper.light-mode {
   form {
-    > div {
+    >div {
       label {
         color: #222;
         transition-duration: 0.2s;
       }
+
       input,
       textarea {
         background: #fff;
@@ -392,13 +368,16 @@ form {
         color: #222;
         transition-duration: 0.2s;
       }
+
       input[type="submit"] {
         background: #f1f1f1;
         border: none;
+
         &:hover {
           background: #e9e9e9;
         }
       }
+
       input:-webkit-autofill,
       input:-webkit-autofill:hover,
       input:-webkit-autofill:focus,
@@ -406,23 +385,28 @@ form {
         transition: background-color 5000s ease-in-out 0s;
       }
     }
+
     .invalidInput {
       label {
         color: #ff0000;
       }
+
       input,
       textarea {
         border-bottom: 1px solid #ff0000;
       }
+
       span.error-msg {
         color: #ff0000;
         transition-duration: 0.2s;
       }
     }
+
     .success-status-msg {
       color: #008000;
       transition-duration: 0.2s;
     }
+
     .error-status-msg {
       color: #ff0000;
       transition-duration: 0.2s;
@@ -443,9 +427,10 @@ form {
 
 @media (max-width: 992px) {
   section {
-    > div.container {
+    >div.container {
       padding-top: 8rem;
     }
+
     form {
       padding-bottom: 1rem;
     }
@@ -453,19 +438,28 @@ form {
 }
 
 @media (max-width: 575px) {
-  form > div.email-phone__wrapper {
+  form>div.email-phone__wrapper {
     flex-direction: column;
     margin-bottom: 0;
-    > div {
+
+    >div {
       width: 100%;
       margin-bottom: 1.5rem;
     }
-    > div:first-of-type {
+
+    >div:first-of-type {
       margin-right: 0;
     }
-    > div:nth-of-type(2) {
+
+    >div:nth-of-type(2) {
       margin-left: 0;
     }
+  }
+}
+
+@media (min-width: 992px) {
+  section {
+    min-height: calc(100vh - 277px);
   }
 }
 </style>
