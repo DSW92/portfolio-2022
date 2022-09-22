@@ -45,6 +45,7 @@ a {
 .footer-logo {
   display: inline-block;
   margin-bottom: 1rem;
+
   h1 {
     color: #fff;
   }
