@@ -28,13 +28,13 @@
             <!-- <p>{{ $t("my-offer.frontend.description-2") }}</p> -->
             <div>
               <router-link to="/contact">{{
-                $t("my-offer.frontend.link")
+              $t("my-offer.frontend.link")
               }}</router-link>
               <span>, </span>
-              <a href="">{{ $t("my-offer.frontend.link-2") }}</a>
+              <a href="https://www.linkedin.com/in/dwojtowicz/">{{ $t("my-offer.frontend.link-2") }}</a>
               <span>, </span>
               <a href="mailto:dominik.s.wojtowicz@gmail.com">{{
-                $t("my-offer.frontend.link-3")
+              $t("my-offer.frontend.link-3")
               }}</a>
             </div>
           </div>
@@ -58,10 +58,13 @@
 .my-offer__tab {
   background: #f1f1f1;
   height: 50px;
+
   a {
     text-decoration: none;
-    > .container {
+
+    >.container {
       height: 100%;
+
       span {
         height: 100%;
         display: flex;
@@ -77,20 +80,25 @@
   padding-top: 5rem;
   // padding-bottom: 2rem;
   overflow: hidden;
+
   .row {
     margin-bottom: 3rem;
+
     .col-12.col-md-9 {
-      > div {
+      >div {
         margin-bottom: 4rem;
+
         p {
           margin-top: 0;
           margin-bottom: 1rem;
         }
-        > div {
+
+        >div {
           a {
             color: #222;
             font-weight: 500;
             text-decoration: none;
+
             &:hover {
               text-decoration: underline;
             }
@@ -106,6 +114,7 @@
     border-bottom: 1px solid #fafafa;
     background: #444;
     transition-duration: 0.2s;
+
     a {
       .container {
         span {
@@ -115,7 +124,9 @@
       }
     }
   }
+
   .container.my-offer__container {
+
     // border-top: 1px solid #fafafa;
     .row {
       .col-12 {
@@ -125,8 +136,9 @@
             transition-duration: 0.2s;
           }
         }
-        > div {
-          > div {
+
+        >div {
+          >div {
             a {
               color: #fafafa;
               transition-duration: 0.2s;
@@ -143,6 +155,7 @@
     border-bottom: 1px solid #222;
     background: #f1f1f1;
     transition-duration: 0.2s;
+
     a {
       .container {
         span {
@@ -152,7 +165,9 @@
       }
     }
   }
+
   .container.my-offer__container {
+
     // border-top: 1px solid #222;
     .row {
       .col-12 {
@@ -162,8 +177,9 @@
             transition-duration: 0.2s;
           }
         }
-        > div {
-          > div {
+
+        >div {
+          >div {
             a {
               color: #222;
               transition-duration: 0.2s;
@@ -189,23 +205,26 @@
 @media (max-width: 768px) {
   .container.my-offer__container {
     padding-top: 2rem;
-    > .row {
+
+    >.row {
       margin-bottom: 2rem;
-      > .col-12.col-md-3 {
+
+      >.col-12.col-md-3 {
         h3 {
           padding-bottom: 0.5rem;
           // margin-bottom: 2rem;
           font-size: 1.7rem;
         }
       }
-      > .col-12.col-md-9 {
-        > div {
+
+      >.col-12.col-md-9 {
+        >div {
           margin-bottom: 2rem;
         }
       }
 
       &:first-of-type {
-        > .col-12.col-md-3 {
+        >.col-12.col-md-3 {
           h3 {
             display: none;
           }
@@ -214,11 +233,11 @@
     }
   }
 
-  .theme-wrapper.light-mode .container.my-offer__container .row .col-12 > h3 {
+  .theme-wrapper.light-mode .container.my-offer__container .row .col-12>h3 {
     border-bottom: 1px solid #222;
   }
 
-  .theme-wrapper.dark-mode .container.my-offer__container .row .col-12 > h3 {
+  .theme-wrapper.dark-mode .container.my-offer__container .row .col-12>h3 {
     border-bottom: 1px solid #fafafa;
   }
 }

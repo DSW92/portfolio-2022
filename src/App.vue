@@ -67,6 +67,7 @@ h6 {
 .theme-wrapper.dark-mode {
   background: #333;
   transition-duration: 0.2s;
+
   h1,
   h2,
   h3,
@@ -77,14 +78,17 @@ h6 {
     color: #fafafa;
     transition-duration: 0.2s;
   }
+
   header {
     background: #222;
     transition-duration: 0.2s;
+
     &.scrolled-down {
       padding: 0.5rem 0 0.5rem 0;
-      > div {
-        > div {
-          > a {
+
+      >div {
+        >div {
+          >a {
             h1 {
               font-size: 1.5rem;
             }
@@ -93,7 +97,9 @@ h6 {
       }
     }
   }
+
   footer {
+
     a,
     p {
       color: #777;
@@ -104,6 +110,7 @@ h6 {
 .theme-wrapper.light-mode {
   background: #fff;
   transition-duration: 0.2s;
+
   h1,
   h2,
   h3,
@@ -114,14 +121,17 @@ h6 {
     color: #222;
     transition-duration: 0.2s;
   }
+
   header {
     background: #fff;
     transition-duration: 0.2s;
+
     &.scrolled-down {
       padding: 0.5rem 0 0.5rem 0;
-      > div {
-        > div {
-          > a {
+
+      >div {
+        >div {
+          >a {
             h1 {
               font-size: 1.5rem;
             }
@@ -130,11 +140,14 @@ h6 {
       }
     }
   }
+
   footer {
+
     a,
     p {
       color: #777;
     }
+
     h1,
     h3 {
       color: #fafafa;
