@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      email: "kontakt@dominikwojtowicz.pl",
+      email: "dominik.s.wojtowicz@gmail.com",
       phoneNumber: "+48 510 215 014",
     };
   },
